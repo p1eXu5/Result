@@ -87,13 +87,15 @@ namespace p1eXu5.Result.Extensions
         }
 
 
+        #region Retn
+
         /// <summary>
         /// Retn for TaskResult.
         /// </summary>
         /// <typeparam name="_"></typeparam>
         /// <param name="succeededContext"></param>
         /// <returns></returns>
-        public static Task< Result< _, ValueTuple > > Retn< _ >( this _ succeededContext )
+        public static Task<Result<_, ValueTuple>> Retn<_>( this _ succeededContext )
             => Task.FromResult( Result<_, ValueTuple>.Success( succeededContext ) );
 
         /// <summary>
@@ -101,8 +103,19 @@ namespace p1eXu5.Result.Extensions
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        public static Task< Result< TSuccess, TError > > Retn< TSuccess, TError >( this Result< TSuccess, TError > result )
+        public static Task<Result<TSuccess, TError>> Retn<TSuccess, TError>( this Result<TSuccess, TError> result )
             => Task.FromResult( result );
+
+        /// <summary>
+        /// Retn for TaskResult.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        public static Task<Result<TSuccess>> Retn<TSuccess>( this Result<TSuccess> result )
+            => Task.FromResult( result );
+
+        #endregion ---------------------------------------------------------- Retn
+
 
         /// <summary>
         /// TaskResult monad.
@@ -139,6 +152,21 @@ namespace p1eXu5.Result.Extensions
 
             return result;
         }
+
+
+        public static async Task< Result<TSuccessB> > Bind< TSuccessA, TSuccessB >( 
+            this Task< Result<TSuccessA> > task, 
+            Func< TSuccessA, Task< Result<TSuccessB> >> f )
+        {
+            var result = await task;
+
+            if (result.TryGetSucceededContext( out var sc )) {
+                return await f( sc );
+            }
+
+            return Result<TSuccessB>.Failure( result.FailedContext );
+        }
+
 
         public static async Task< Result< TSuccessB, TErrorB > > Bind<TSuccessA, TSuccessB, TErrorA, TErrorB>( 
             this Task< Result< TSuccessA, TErrorA > > task, 
