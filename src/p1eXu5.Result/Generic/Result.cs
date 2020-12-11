@@ -169,18 +169,18 @@ namespace p1eXu5.Result.Generic
 
             var other = ( Result<TSuccess, TFailure> )obj;
 
-            if ( TryGetSucceededContext( out var sa ) && TryGetSucceededContext( out var sb ) ) {
+            if ( TryGetSucceededContext( out TSuccess sa ) && TryGetSucceededContext( out var sb ) ) {
                 return 
                     typeof(TSuccess).IsClass
                         ? sa?.Equals( sb ) ?? (sb == null)
-                        : sa.Equals( sb );
+                        : sa!.Equals( sb );
             }
 
             if ( TryGetFailedContext( out var fa ) && TryGetFailedContext( out var fb ) ) {
                 return 
                     typeof(TFailure).IsClass
                         ? fa?.Equals( fb ) ?? (fb == null)
-                        : fa.Equals( fb );
+                        : fa!.Equals( fb );
             }
 
             return false;
@@ -192,12 +192,12 @@ namespace p1eXu5.Result.Generic
             var success = 97 * 
                 (typeof( TSuccess ).IsClass
                     ? _successContext?.GetHashCode() ?? 1
-                    : _successContext.GetHashCode());
+                    : _successContext!.GetHashCode());
 
             var failure = 29 *
                 (typeof( TSuccess ).IsClass
                     ? _failureContext?.GetHashCode() ?? 29
-                    : _failureContext.GetHashCode());
+                    : _failureContext!.GetHashCode());
 
             return Succeeded.GetHashCode() + success + failure * 13;
         }

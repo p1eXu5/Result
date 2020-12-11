@@ -23,6 +23,9 @@ namespace p1eXu5.Result.Extensions
                 isSuccessful( result )
                     ? result.ToSuccessResult()
                     : result.ToFiledResult();
+
+        public static Result< TSuccess > ToResult< TSuccess >( this TSuccess success )
+            => Result< TSuccess >.Success( success );
      
         
         /// <summary>
@@ -58,6 +61,24 @@ namespace p1eXu5.Result.Extensions
             }
 
             return Result< TSuccessB,__ >.Failure( result.FailedContext );
+        }
+
+
+        /// <summary>
+        /// <see cref="Result{TSuccess}"/> functor.
+        /// </summary>
+        /// <typeparam name="TSuccessA"></typeparam>
+        /// <typeparam name="TSuccessB"></typeparam>
+        /// <param name="result"></param>
+        /// <param name="f"></param>
+        /// <returns></returns>
+        public static Result< TSuccessB > Map<TSuccessA, TSuccessB>( this Result< TSuccessA > result, Func< TSuccessA, TSuccessB > f )
+        {
+            if ( result.TryGetSucceededContext( out var sc ) ) {
+                return Result< TSuccessB >.Success( f( sc ) );
+            }
+
+            return Result< TSuccessB >.Failure( result.FailedContext );
         }
 
 
@@ -160,6 +181,28 @@ namespace p1eXu5.Result.Extensions
             }
 
             return Task.FromResult( result );
+        }
+
+
+        public static Result< TSuccess > Iter< TSuccess >( this Result< TSuccess > result, Action< TSuccess > action )
+        {
+            if ( result.TryGetSucceededContext( out TSuccess success ) )
+            {
+                action( success );
+            }
+
+            return result;
+        }
+
+
+        public static async ValueTask<Result< TSuccess >> IterAsync< TSuccess >( this Result< TSuccess > result, Func< TSuccess, ValueTask > actionAsync )
+        {
+            if ( result.TryGetSucceededContext( out TSuccess success ) )
+            {
+                await actionAsync( success );
+            }
+
+            return result;
         }
     }
 }
