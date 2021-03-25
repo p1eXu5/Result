@@ -18,8 +18,8 @@ namespace p1eXu5.Result.Generic
     {
         #region fields
 
-        private readonly TSuccess _successContext;
-        private readonly TFailure _failureContext;
+        private readonly TSuccess _successContext = default!;
+        private readonly TFailure _failureContext = default!;
 
         #endregion ----------------------------------------------------- fields
 
@@ -124,7 +124,7 @@ namespace p1eXu5.Result.Generic
         /// <returns></returns>
         public bool TryGetSucceededContext( out TSuccess succeededContext )
         {
-            succeededContext = default;
+            succeededContext = default!;
             if (Succeeded) {
                 succeededContext = _successContext;
                 return true;
@@ -140,7 +140,7 @@ namespace p1eXu5.Result.Generic
         /// <returns></returns>
         public bool TryGetFailedContext( out TFailure failedContext )
         {
-            failedContext = default;
+            failedContext = default!;
             if (Failed) {
                 failedContext = _failureContext;
                 return true;
