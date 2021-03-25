@@ -26,8 +26,10 @@ namespace p1eXu5.Result.Extensions
 
         public static Result< TSuccess > ToResult< TSuccess >( this TSuccess success )
             => Result< TSuccess >.Success( success );
-     
-        
+
+
+        #region bind 
+
         /// <summary>
         /// <see cref="Result{TSuccess,TFailure}"/> monad.
         /// </summary>
@@ -36,14 +38,28 @@ namespace p1eXu5.Result.Extensions
         /// <param name="result"></param>
         /// <param name="f"></param>
         /// <returns></returns>
-        public static Result<_,__> Bind<_,__>( this Result< _,__ > result, Func< _, Result< _,__ > > f )
+        public static Result<_, __> Bind<_, __>(this Result<_, __> result, Func<_, Result<_, __>> f)
         {
-            if ( result.TryGetSucceededContext( out var sc ) ) {
-                return f( sc );
+            if (result.TryGetSucceededContext(out var sc))
+            {
+                return f(sc);
             }
 
             return result;
         }
+
+        public static Result<TSuccessB> Bind<TSuccessA, TSuccessB>(this Result<TSuccessA> result, Func<TSuccessA, Result<TSuccessB>> f)
+        {
+            if (result.TryGetSucceededContext(out var sc))
+            {
+                return f(sc);
+            }
+
+            return Result.Failure<TSuccessB>(result.FailedContext);
+        }
+
+        #endregion ----------------------------------------------------- bind
+
 
         /// <summary>
         /// <see cref="Result{TSuccess,TFailure}"/> functor.

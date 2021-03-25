@@ -29,13 +29,15 @@ namespace p1eXu5.Result
         /// Creates succeeded <see cref="Result"/>
         /// </summary>
         /// <returns></returns>
-        public static Result Success() => new Result( Result< ValueTuple, string >.Success( new ValueTuple() ) );
+        public static Result Success() => new Result( Result< Unit, string >.Success( new ValueTuple() ) );
+
+        public static Result<TSuccess> Success<TSuccess>( TSuccess success ) => Result<TSuccess>.Success( success );
 
         /// <summary>
         /// Creates failed <see cref="Result"/>.
         /// </summary>
         /// <returns></returns>
-        public new static Result Failure() => new Result( Result< ValueTuple, string >.Failure( "" ) );
+        public new static Result Failure() => new Result( Result< Unit, string >.Failure( "" ) );
 
 
         /// <summary>
@@ -43,8 +45,14 @@ namespace p1eXu5.Result
         /// </summary>
         /// <param name="error"></param>
         /// <returns></returns>
-        public new static Result Failure( string error ) => new Result( Result< ValueTuple, string >.Failure( error ) );
+        public new static Result Failure( string error ) => new Result( Result< Unit, string >.Failure( error ) );
 
+        /// <summary>
+        /// Creates failed <see cref="Result"/>.
+        /// </summary>
+        /// <param name="error"></param>
+        /// <returns></returns>
+        public static Result<TSuccess> Failure<TSuccess>( string error ) => Result<TSuccess>.Failure( error );
 
         /// <summary>
         /// Creates failed <see cref="Result"/>.
