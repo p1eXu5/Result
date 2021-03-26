@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p1eXu5.Result", "src\p1eXu5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{43B8936D-1113-4100-8DAF-9CBBD546FAD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p1eXu5.Result.Tests", "test\p1eXu5.Result.Tests\p1eXu5.Result.Tests.csproj", "{B3371DAB-52B9-436E-9E3D-CE30DD2E5082}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p1eXu5.Result.Tests", "test\p1eXu5.Result.Tests\p1eXu5.Result.Tests.csproj", "{B3371DAB-52B9-436E-9E3D-CE30DD2E5082}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{508AA393-D6F6-4444-BE4D-7C9F12FED542}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publisher.yml = .github\workflows\publisher.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
