@@ -174,10 +174,10 @@ namespace p1eXu5.Result.Extensions
         #endregion ----------------------------------------------------- filter
 
 
-        public static Result< ICollection<TSuccess> > TraverseM<TSuccess>( this ICollection<TSuccess> elems, Func<TSuccess, Result<TSuccess>> f)
+        public static Result< ICollection<TSuccessB> > TraverseM<TSuccessA,TSuccessB>( this ICollection<TSuccessA> elems, Func<TSuccessA, Result<TSuccessB>> f)
         {
-            ICollection<TSuccess> list = new List<TSuccess>();
-            Result<ICollection<TSuccess> > res = list.ToResult();
+            ICollection<TSuccessB> list = new List<TSuccessB>();
+            Result<ICollection<TSuccessB> > res = list.ToResult();
 
             foreach ( var elem in elems ) {
                 res = f( elem )
