@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace p1eXu5.Result.Extensions
@@ -61,6 +63,8 @@ namespace p1eXu5.Result.Extensions
         #endregion ----------------------------------------------------- bind
 
 
+        #region map 
+
         /// <summary>
         /// <see cref="Result{TSuccess,TFailure}"/> functor.
         /// </summary>
@@ -70,13 +74,14 @@ namespace p1eXu5.Result.Extensions
         /// <param name="result"></param>
         /// <param name="f"></param>
         /// <returns></returns>
-        public static Result< TSuccessB,__ > Map<TSuccessA, TSuccessB, __>( this Result< TSuccessA,__ > result, Func< TSuccessA, TSuccessB > f )
+        public static Result<TSuccessB, __> Map<TSuccessA, TSuccessB, __>(this Result<TSuccessA, __> result, Func<TSuccessA, TSuccessB> f)
         {
-            if ( result.TryGetSucceededContext( out var sc ) ) {
-                return Result< TSuccessB,__ >.Success( f( sc ) );
+            if (result.TryGetSucceededContext(out var sc))
+            {
+                return Result<TSuccessB, __>.Success(f(sc));
             }
 
-            return Result< TSuccessB,__ >.Failure( result.FailedContext );
+            return Result<TSuccessB, __>.Failure(result.FailedContext);
         }
 
 
@@ -88,13 +93,14 @@ namespace p1eXu5.Result.Extensions
         /// <param name="result"></param>
         /// <param name="f"></param>
         /// <returns></returns>
-        public static Result< TSuccessB > Map<TSuccessA, TSuccessB>( this Result< TSuccessA > result, Func< TSuccessA, TSuccessB > f )
+        public static Result<TSuccessB> Map<TSuccessA, TSuccessB>(this Result<TSuccessA> result, Func<TSuccessA, TSuccessB> f)
         {
-            if ( result.TryGetSucceededContext( out var sc ) ) {
-                return Result< TSuccessB >.Success( f( sc ) );
+            if (result.TryGetSucceededContext(out var sc))
+            {
+                return Result<TSuccessB>.Success(f(sc));
             }
 
-            return Result< TSuccessB >.Failure( result.FailedContext );
+            return Result<TSuccessB>.Failure(result.FailedContext);
         }
 
 
@@ -108,52 +114,83 @@ namespace p1eXu5.Result.Extensions
         /// <param name="result"></param>
         /// <param name="f"></param>
         /// <returns></returns>
-        public static Result< _,TErrorB > MapError<_, TErrorA, TErrorB>( this Result< _, TErrorA > result, Func< TErrorA, TErrorB > f )
+        public static Result<_, TErrorB> MapError<_, TErrorA, TErrorB>(this Result<_, TErrorA> result, Func<TErrorA, TErrorB> f)
         {
-            if ( result.TryGetFailedContext( out var fc ) ) {
-                return Result< _,TErrorB >.Failure( f( fc ) );
+            if (result.TryGetFailedContext(out var fc))
+            {
+                return Result<_, TErrorB>.Failure(f(fc));
             }
 
-            return Result< _,TErrorB >.Success( result.SuccessContext );
+            return Result<_, TErrorB>.Success(result.SuccessContext);
         }
 
-        public static Result< TSuccessB,TErrorB > Bimap<TSuccessA, TSuccessB, TErrorA, TErrorB>( this Result< TSuccessA, TErrorA > result, Func< TSuccessA, TSuccessB > fs, Func< TErrorA, TErrorB > fe )
+        public static Result<TSuccessB, TErrorB> Bimap<TSuccessA, TSuccessB, TErrorA, TErrorB>(this Result<TSuccessA, TErrorA> result, Func<TSuccessA, TSuccessB> fs, Func<TErrorA, TErrorB> fe)
         {
 
-            if ( result.TryGetSucceededContext( out var s ) ) {
-                return Result< TSuccessB, TErrorB >.Success( fs( s ) );
+            if (result.TryGetSucceededContext(out var s))
+            {
+                return Result<TSuccessB, TErrorB>.Success(fs(s));
             }
 
-            return Result< TSuccessB, TErrorB >.Failure( fe( result.FailedContext ) );
+            return Result<TSuccessB, TErrorB>.Failure(fe(result.FailedContext));
         }
 
-        public static Result< TSuccessA, TError > Filter<TSuccessA, TError>( 
-            this Result< TSuccessA, TError > result, Predicate< TSuccessA > filter, TError defaultError )
+        #endregion ----------------------------------------------------- map
+
+
+        #region filter 
+
+        public static Result<TSuccessA, TError> Filter<TSuccessA, TError>(
+            this Result<TSuccessA, TError> result, Predicate<TSuccessA> filter, TError defaultError)
         {
 
-            if ( result.TryGetSucceededContext( out var s ) ) {
+            if (result.TryGetSucceededContext(out var s))
+            {
                 return
-                    filter( s )
+                    filter(s)
                         ? result
-                        : Result< TSuccessA, TError >.Failure( defaultError );
+                        : Result<TSuccessA, TError>.Failure(defaultError);
             }
 
             return result;
         }
 
-        
-        public static Result< TSuccessA, TError > FilterError<TSuccessA, TError>( 
-            this Result< TSuccessA, TError > result, Predicate< TError > filter, TSuccessA defaultError )
+
+        public static Result<TSuccessA, TError> FilterError<TSuccessA, TError>(
+            this Result<TSuccessA, TError> result, Predicate<TError> filter, TSuccessA defaultError)
         {
 
-            if ( result.TryGetFailedContext( out var f ) ) {
+            if (result.TryGetFailedContext(out var f))
+            {
                 return
-                    filter( f )
+                    filter(f)
                         ? result
-                        : Result< TSuccessA, TError >.Success( defaultError );
+                        : Result<TSuccessA, TError>.Success(defaultError);
             }
 
             return result;
+        }
+
+        #endregion ----------------------------------------------------- filter
+
+
+        public static Result< ICollection<TSuccess> > TraverseM<TSuccess>( this ICollection<TSuccess> elems, Func<TSuccess, Result<TSuccess>> f)
+        {
+            ICollection<TSuccess> list = new List<TSuccess>();
+            Result<ICollection<TSuccess> > res = list.ToResult();
+
+            foreach ( var elem in elems ) {
+                res = f( elem )
+                    .Map( r => {
+                        list.Add( r );
+                        return list;
+                    } );
+                if ( res.Failed ) {
+                    return res;
+                }
+            }
+            
+            return res;
         }
 
 
@@ -200,25 +237,30 @@ namespace p1eXu5.Result.Extensions
         }
 
 
-        public static Result< TSuccess > Iter< TSuccess >( this Result< TSuccess > result, Action< TSuccess > action )
+        #region iter 
+
+        public static Result<TSuccess> Iter<TSuccess>(this Result<TSuccess> result, Action<TSuccess> action)
         {
-            if ( result.TryGetSucceededContext( out TSuccess success ) )
+            if (result.TryGetSucceededContext(out TSuccess success))
             {
-                action( success );
+                action(success);
             }
 
             return result;
         }
 
 
-        public static async ValueTask<Result< TSuccess >> IterAsync< TSuccess >( this Result< TSuccess > result, Func< TSuccess, ValueTask > actionAsync )
+        public static async ValueTask<Result<TSuccess>> IterAsync<TSuccess>(this Result<TSuccess> result, Func<TSuccess, ValueTask> actionAsync)
         {
-            if ( result.TryGetSucceededContext( out TSuccess success ) )
+            if (result.TryGetSucceededContext(out TSuccess success))
             {
-                await actionAsync( success );
+                await actionAsync(success);
             }
 
             return result;
         }
+
+        #endregion ----------------------------------------------------- iter
+
     }
 }

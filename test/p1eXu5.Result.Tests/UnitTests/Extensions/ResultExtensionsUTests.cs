@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using p1eXu5.Result.Extensions;
 using p1eXu5.Result.Generic;
@@ -34,6 +35,41 @@ namespace p1eXu5.Result.Tests.UnitTests.Extensions
 
             // Assert:
             actual.ShouldBe( Result.Failure<Type>("18") );
+        }
+
+        [Test]
+        public void TraverseM_AllSucceeded_ReturnsSucceededResult()
+        {
+            // Arrange:
+            var list = new int[] { 1, 2, 3, 4 };
+            Func<int, Result<int> > f = (int i) => i.ToResult();
+
+            // Action:
+            var actual = list.TraverseM( f );
+
+            // Assert:
+            actual.Succeeded.ShouldBeTrue();
+            actual.SuccessContext.ShouldBe( list );
+        }
+
+        [Test]
+        public void TraverseM_SomeFailed_ReturnsFailedResult()
+        {
+            // Arrange:
+            var list = new int[] { 1, 2, 3, 4 };
+            bool invokedWithLastElem = false;
+            Func<int, Result<int> > f = (int i) => {
+                if ( i == 4 ) invokedWithLastElem = true;
+                return i == 3 ? Result.Failure< int >( "error" ) : i.ToResult();
+            };
+
+            // Action:
+            var actual = list.TraverseM( f );
+
+            // Assert:
+            actual.Succeeded.ShouldBeFalse();
+            actual.FailedContext.ShouldBe( "error" );
+            invokedWithLastElem.ShouldBeFalse();
         }
     }
 }
