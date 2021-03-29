@@ -56,6 +56,15 @@ namespace p1eXu5.Result.Extensions
                 aResult.Map( f );
         }
 
+
+        public static async Task< Result<TS11>> MapFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11>(
+            this Task<Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)>> result, Func<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, Result<TS11>> f)
+        {
+            var res = await result;
+            return res.MapFlat( f );
+        }
+
+
         public static async Task< Result< TSuccessA, TError > > Filter<TSuccessA, TError >( 
             this Task< Result< TSuccessA, TError > > task, Predicate< TSuccessA> filter, TError defaultError )
         {
@@ -136,6 +145,61 @@ namespace p1eXu5.Result.Extensions
             return Result< TSuccessB, __ >.Failure( result.FailedContext );
         }
 
+
+        public static async Task< Result<TSuccessB> > Bind<TSuccessA, TSuccessB>( this Task< Result<TSuccessA>> taskResult, Func<TSuccessA, Result<TSuccessB>> f)
+        {
+            var result = await taskResult;
+
+            if (result.TryGetSucceededContext( out var sc )) {
+                return f( sc );
+            }
+
+            return Result<TSuccessB>.Failure( result.FailedContext );
+        }
+
+        public static async Task< Result<TSuccessB> > BindV<TSuccessA, TSuccessB>( this ValueTask< Result<TSuccessA>> taskResult, Func<TSuccessA, Result<TSuccessB>> f)
+        {
+            var result = await taskResult;
+
+            if (result.TryGetSucceededContext( out var sc )) {
+                return f( sc );
+            }
+
+            return Result<TSuccessB>.Failure( result.FailedContext );
+        }
+        public static async Task< Result<TSuccessB> > BindV<TSuccessA, TSuccessB>( this ValueTask< Result<TSuccessA>> taskResult, Func<TSuccessA, ValueTask<Result<TSuccessB>>> f)
+        {
+            var result = await taskResult;
+
+            if (result.TryGetSucceededContext( out var sc )) {
+                return await f( sc );
+            }
+
+            return Result<TSuccessB>.Failure( result.FailedContext );
+        }
+
+
+        public static async ValueTask< Result<TSuccessB> > BindV<TSuccessA, TSuccessB>( this ValueTask< Result<TSuccessA>> taskResult, Func<TSuccessA, Task< Result<TSuccessB>>> f)
+        {
+            var result = await taskResult;
+
+            if (result.TryGetSucceededContext( out var sc )) {
+                return await f( sc );
+            }
+
+            return Result<TSuccessB>.Failure( result.FailedContext );
+        }
+
+        public static async Task< Result< TSuccessB > > Bind<TSuccessA, TSuccessB>( this Task< Result<TSuccessA>> taskResult, Func<TSuccessA, ValueTask<TSuccessB>> f)
+        {
+            var result = await taskResult;
+
+            if (result.TryGetSucceededContext( out var sc )) {
+                return (await f( sc )).ToResult();
+            }
+
+            return Result<TSuccessB>.Failure( result.FailedContext );
+        }
 
         public static async Task< Result > Bind( 
             this Task< Result > task, 

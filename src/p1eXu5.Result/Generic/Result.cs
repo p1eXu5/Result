@@ -269,7 +269,20 @@ namespace p1eXu5.Result.Generic
         public bool Failed => InternalResult.Failed;
 
         /// <inheritdoc />
-        public TSuccess SuccessContext => InternalResult.SuccessContext;
+        /// <summary>
+        /// Gets succeeded context. If <see cref="Result{TSuccess,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
+        /// </summary>
+        /// <exception cref="ResultContextAccessException"></exception>
+        public TSuccess SuccessContext
+        {
+            get {
+                if ( TryGetSucceededContext( out var success ) ) {
+                    return success;
+                }
+
+                throw new ResultContextAccessException( $"Result is failed: {Error}" );
+            }
+        }
 
         /// <inheritdoc />
         public string FailedContext => InternalResult.FailedContext;
@@ -386,6 +399,13 @@ namespace p1eXu5.Result.Generic
         {
             return InternalResult.GetHashCode();
         }
+
+
+        /// <summary>
+        /// Implicitly converts <see cref="Result{TSuccess,TFailure}"/> to <see cref="bool"/>.
+        /// </summary>
+        /// <param name="result"></param>
+        public static implicit operator bool( Result< TSuccess > result ) => result.Succeeded;
 
         #endregion ----------------------------------------------------- overrides
     }
