@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using p1eXu5.Result.Extensions;
 using p1eXu5.Result.Generic;
@@ -106,6 +107,34 @@ namespace p1eXu5.Result.Tests.UnitTests.Extensions
             actual.Succeeded.ShouldBeFalse();
             actual.FailedContext.ShouldBe( "error" );
             invokedWithLastElem.ShouldBeFalse();
+        }
+
+        [Test]
+        public async Task TraverseM_TraverseTask()
+        {
+            // Arrange:
+            var result = Result.Success<Task<int>>( Task.FromResult( 12 ) );
+
+            // Action:
+            var taskResult = result.SequenceTask();
+
+            // Assert:
+            var actual = await taskResult;
+            actual.Succeeded.ShouldBeTrue();
+            actual.SuccessContext.ShouldBe( 12 );
+        }
+
+        [Test]
+        public void BindFlatTest()
+        {
+            var res = (12, "asd").ToResult();
+
+            var actual =
+                res.BindFlat( () => typeof(string).ToResult() )
+                    .Map( (i, s, t) => "done" );
+
+            actual.Succeeded.ShouldBeTrue();
+            actual.SuccessContext.ShouldBe( "done" );
         }
     }
 }
