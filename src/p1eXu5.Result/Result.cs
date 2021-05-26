@@ -87,7 +87,7 @@ namespace p1eXu5.Result
             {
                 errors.Add( e.Message );
                 if (e.InnerException != null) {
-                    errors.Add( e.InnerException.Message );
+                    AddExceptionMessages( e.InnerException );
                 }
 
             }
