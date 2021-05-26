@@ -391,7 +391,7 @@ namespace p1eXu5.Result.Generic
 
         public override bool Equals( object obj )
         {
-            if ( obj == null ) return  false;
+            if ( obj == null! ) return  false;
             return obj is Result< TSuccess > other && InternalResult.Equals( other.InternalResult );
         }
 
