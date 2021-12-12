@@ -18,6 +18,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\publisher.yml = .github\workflows\publisher.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{ABB7234D-AC23-4279-981B-7F7BEDCA4AC3}"
+	ProjectSection(SolutionItems) = preProject
+		docfx.json = docfx.json
+		index.md = index.md
+		README.md = README.md
+		toc.yml = toc.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
