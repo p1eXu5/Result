@@ -1,0 +1,1849 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TaskResultExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TaskResultExtensions
+   ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc">
+    <meta property="docfx:tocrel" content="toc">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../api/index.html" title="Api Documentation">Api Documentation</a>
+                      </li>
+                </ul>    </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="p1eXu5.Result.html" title="p1eXu5.Result" class="">p1eXu5.Result</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="p1eXu5.Result.IResult-2.html" title="IResult&lt;TSuccess, TFailure&gt;" class="">IResult&lt;TSuccess, TFailure&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="p1eXu5.Result.Result.html" title="Result" class="">Result</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="p1eXu5.Result.Exceptions.html" title="p1eXu5.Result.Exceptions" class="">p1eXu5.Result.Exceptions</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="p1eXu5.Result.Exceptions.ResultContextAccessException.html" title="ResultContextAccessException" class="">ResultContextAccessException</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="p1eXu5.Result.Extensions.html" title="p1eXu5.Result.Extensions" class="">p1eXu5.Result.Extensions</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="p1eXu5.Result.Extensions.ResultExtensions.html" title="ResultExtensions" class="">ResultExtensions</a>
+                          </li>
+                          <li class="">
+                            <a href="p1eXu5.Result.Extensions.TaskExtensions.html" title="TaskExtensions" class="">TaskExtensions</a>
+                          </li>
+                          <li class="active">
+                            <a href="p1eXu5.Result.Extensions.TaskResultExtensions.html" title="TaskResultExtensions" class="active">TaskResultExtensions</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="p1eXu5.Result.Generic.html" title="p1eXu5.Result.Generic" class="">p1eXu5.Result.Generic</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="p1eXu5.Result.Generic.Result-2.html" title="Result&lt;TSuccess, TFailure&gt;" class="">Result&lt;TSuccess, TFailure&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="p1eXu5.Result.Generic.Result-1.html" title="Result&lt;TSuccess&gt;" class="">Result&lt;TSuccess&gt;</a>
+                          </li>
+                        </ul>  </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions">
+  
+  
+  <h1 id="p1eXu5_Result_Extensions_TaskResultExtensions" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions" class="text-break">Class TaskResultExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>TaskResult extensions.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">TaskResultExtensions</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="p1eXu5.Result.Extensions.html">p1eXu5.Result.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: p1eXu5.Result.dll</h6>
+  <h5 id="p1eXu5_Result_Extensions_TaskResultExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class TaskResultExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Apply__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result_System_Func___0___1____2___.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Apply%60%603(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%602%7D%7D%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7BSystem.Func%7B%60%600%2C%60%601%7D%2C%60%602%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L24">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Apply_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Apply*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Apply__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result_System_Func___0___1____2___" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Apply``3(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``2}},System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{System.Func{``0,``1},``2}})">Apply&lt;TSuccessA, TSuccessB, __&gt;(Task&lt;Result&lt;TSuccessA, __&gt;&gt;, Task&lt;Result&lt;Func&lt;TSuccessA, TSuccessB&gt;, __&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>TaskResult applicative functor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB, __&gt;&gt; Apply&lt;TSuccessA, TSuccessB, __&gt;(this Task&lt;Result&lt;TSuccessA, __&gt;&gt; task, Task&lt;Result&lt;Func&lt;TSuccessA, TSuccessB&gt;, __&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, __&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;<span class="xref">System.Func</span>&lt;TSuccessA, TSuccessB&gt;, __&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, __&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">__</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bibind__4_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1___3____System_Func___2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1___3____.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bibind%60%604(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%602%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%601%2C%60%603%7D%7D%7D%2CSystem.Func%7B%60%602%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%601%2C%60%603%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L246">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bibind_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bibind*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bibind__4_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1___3____System_Func___2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1___3____" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bibind``4(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``2}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``1,``3}}},System.Func{``2,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``1,``3}}})">Bibind&lt;TSuccessA, TSuccessB, TErrorA, TErrorB&gt;(Task&lt;Result&lt;TSuccessA, TErrorA&gt;&gt;, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt;&gt;, Func&lt;TErrorA, Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt; Bibind&lt;TSuccessA, TSuccessB, TErrorA, TErrorB&gt;(this Task&lt;Result&lt;TSuccessA, TErrorA&gt;&gt; task, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt;&gt; fs, Func&lt;TErrorA, Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt;&gt; fe)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, TErrorA&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, TErrorB&gt;&gt;&gt;</td>
+        <td><span class="parametername">fs</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TErrorA, <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, TErrorB&gt;&gt;&gt;</td>
+        <td><span class="parametername">fe</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, TErrorB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bimap__4_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0___1__System_Func___2___3__.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bimap%60%604(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%602%7D%7D%2CSystem.Func%7B%60%600%2C%60%601%7D%2CSystem.Func%7B%60%602%2C%60%603%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L88">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bimap_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bimap*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bimap__4_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0___1__System_Func___2___3__" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bimap``4(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``2}},System.Func{``0,``1},System.Func{``2,``3})">Bimap&lt;TSuccessA, TSuccessB, TErrorA, TErrorB&gt;(Task&lt;Result&lt;TSuccessA, TErrorA&gt;&gt;, Func&lt;TSuccessA, TSuccessB&gt;, Func&lt;TErrorA, TErrorB&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt; Bimap&lt;TSuccessA, TSuccessB, TErrorA, TErrorB&gt;(this Task&lt;Result&lt;TSuccessA, TErrorA&gt;&gt; task, Func&lt;TSuccessA, TSuccessB&gt; fs, Func&lt;TErrorA, TErrorB&gt; fe)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, TErrorA&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, TSuccessB&gt;</td>
+        <td><span class="parametername">fs</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TErrorA, TErrorB&gt;</td>
+        <td><span class="parametername">fe</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, TErrorB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bind_System_Threading_Tasks_Task_p1eXu5_Result_Result__System_Func_System_Threading_Tasks_Task_p1eXu5_Result_Result___.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bind(System.Threading.Tasks.Task%7Bp1eXu5.Result.Result%7D%2CSystem.Func%7BSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Result%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L204">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind_System_Threading_Tasks_Task_p1eXu5_Result_Result__System_Func_System_Threading_Tasks_Task_p1eXu5_Result_Result___" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind(System.Threading.Tasks.Task{p1eXu5.Result.Result},System.Func{System.Threading.Tasks.Task{p1eXu5.Result.Result}})">Bind(Task&lt;Result&gt;, Func&lt;Task&lt;Result&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&gt; Bind(this Task&lt;Result&gt; task, Func&lt;Task&lt;Result&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Result.html">Result</a>&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Result.html">Result</a>&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Result.html">Result</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bind__1_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0_System_String___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Result___.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bind%60%601(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2CSystem.String%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Result%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L260">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind__1_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0_System_String___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Result___" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind``1(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,System.String}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Result}})">Bind&lt;TSuccessA&gt;(Task&lt;Result&lt;TSuccessA, String&gt;&gt;, Func&lt;TSuccessA, Task&lt;Result&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&gt; Bind&lt;TSuccessA&gt;(this Task&lt;Result&lt;TSuccessA, string&gt;&gt; task, Func&lt;TSuccessA, Task&lt;Result&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Result.html">Result</a>&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Result.html">Result</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bind__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_p1eXu5_Result_Generic_Result___1___.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bind%60%602(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2Cp1eXu5.Result.Generic.Result%7B%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L149">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_p1eXu5_Result_Generic_Result___1___" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})">Bind&lt;TSuccessA, TSuccessB&gt;(Task&lt;Result&lt;TSuccessA&gt;&gt;, Func&lt;TSuccessA, Result&lt;TSuccessB&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB&gt;&gt; Bind&lt;TSuccessA, TSuccessB&gt;(this Task&lt;Result&lt;TSuccessA&gt;&gt; taskResult, Func&lt;TSuccessA, Result&lt;TSuccessB&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessA&gt;&gt;</td>
+        <td><span class="parametername">taskResult</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bind__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1____.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bind%60%602(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%601%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L218">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1____" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``1}}})">Bind&lt;TSuccessA, TSuccessB&gt;(Task&lt;Result&lt;TSuccessA&gt;&gt;, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB&gt;&gt; Bind&lt;TSuccessA, TSuccessB&gt;(this Task&lt;Result&lt;TSuccessA&gt;&gt; task, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB&gt;&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessA&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bind__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_ValueTask___1___.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bind%60%602(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.ValueTask%7B%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L193">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_ValueTask___1___" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,System.Threading.Tasks.ValueTask{``1}})">Bind&lt;TSuccessA, TSuccessB&gt;(Task&lt;Result&lt;TSuccessA&gt;&gt;, Func&lt;TSuccessA, ValueTask&lt;TSuccessB&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB&gt;&gt; Bind&lt;TSuccessA, TSuccessB&gt;(this Task&lt;Result&lt;TSuccessA&gt;&gt; taskResult, Func&lt;TSuccessA, ValueTask&lt;TSuccessB&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessA&gt;&gt;</td>
+        <td><span class="parametername">taskResult</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;TSuccessB&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bind__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1___2____.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bind%60%603(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%602%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%601%2C%60%602%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L135">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1___2____" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind``3(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``2}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``1,``2}}})">Bind&lt;TSuccessA, TSuccessB, __&gt;(Task&lt;Result&lt;TSuccessA, __&gt;&gt;, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB, __&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>TaskResult monad.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB, __&gt;&gt; Bind&lt;TSuccessA, TSuccessB, __&gt;(this Task&lt;Result&lt;TSuccessA, __&gt;&gt; task, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB, __&gt;&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, __&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, __&gt;&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, __&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">__</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Bind__4_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1___3____System_Func___2___3__.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Bind%60%604(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%602%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%601%2C%60%603%7D%7D%7D%2CSystem.Func%7B%60%602%2C%60%603%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L232">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Bind__4_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1___3____System_Func___2___3__" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Bind``4(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``2}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``1,``3}}},System.Func{``2,``3})">Bind&lt;TSuccessA, TSuccessB, TErrorA, TErrorB&gt;(Task&lt;Result&lt;TSuccessA, TErrorA&gt;&gt;, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt;&gt;, Func&lt;TErrorA, TErrorB&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt; Bind&lt;TSuccessA, TSuccessB, TErrorA, TErrorB&gt;(this Task&lt;Result&lt;TSuccessA, TErrorA&gt;&gt; task, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB, TErrorB&gt;&gt;&gt; f, Func&lt;TErrorA, TErrorB&gt; fe)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, TErrorA&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, TErrorB&gt;&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TErrorA, TErrorB&gt;</td>
+        <td><span class="parametername">fe</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, TErrorB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_BindError__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___1___System_Func___1_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2____.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.BindError%60%603(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%601%7D%7D%2CSystem.Func%7B%60%601%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%602%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L274">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_BindError_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.BindError*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_BindError__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___1___System_Func___1_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2____" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.BindError``3(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``1}},System.Func{``1,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``2}}})">BindError&lt;_, TErrorA, TErrorB&gt;(Task&lt;Result&lt;_, TErrorA&gt;&gt;, Func&lt;TErrorA, Task&lt;Result&lt;_, TErrorB&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;_, TErrorB&gt;&gt; BindError&lt;_, TErrorA, TErrorB&gt;(this Task&lt;Result&lt;_, TErrorA&gt;&gt; task, Func&lt;TErrorA, Task&lt;Result&lt;_, TErrorB&gt;&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;_, TErrorA&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TErrorA, <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;_, TErrorB&gt;&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;_, TErrorB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">_</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_BindV__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_p1eXu5_Result_Generic_Result___1___.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.BindV%60%602(System.Threading.Tasks.ValueTask%7Bp1eXu5.Result.Generic.Result%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2Cp1eXu5.Result.Generic.Result%7B%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L160">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_BindV_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.BindV*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_BindV__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_p1eXu5_Result_Generic_Result___1___" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.BindV``2(System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})">BindV&lt;TSuccessA, TSuccessB&gt;(ValueTask&lt;Result&lt;TSuccessA&gt;&gt;, Func&lt;TSuccessA, Result&lt;TSuccessB&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB&gt;&gt; BindV&lt;TSuccessA, TSuccessB&gt;(this ValueTask&lt;Result&lt;TSuccessA&gt;&gt; taskResult, Func&lt;TSuccessA, Result&lt;TSuccessB&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessA&gt;&gt;</td>
+        <td><span class="parametername">taskResult</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_BindV__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1____.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.BindV%60%602(System.Threading.Tasks.ValueTask%7Bp1eXu5.Result.Generic.Result%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%601%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L182">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_BindV_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.BindV*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_BindV__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1____" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.BindV``2(System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``1}}})">BindV&lt;TSuccessA, TSuccessB&gt;(ValueTask&lt;Result&lt;TSuccessA&gt;&gt;, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;TSuccessB&gt;&gt; BindV&lt;TSuccessA, TSuccessB&gt;(this ValueTask&lt;Result&lt;TSuccessA&gt;&gt; taskResult, Func&lt;TSuccessA, Task&lt;Result&lt;TSuccessB&gt;&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessA&gt;&gt;</td>
+        <td><span class="parametername">taskResult</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_BindV__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___1____.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.BindV%60%602(System.Threading.Tasks.ValueTask%7Bp1eXu5.Result.Generic.Result%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.ValueTask%7Bp1eXu5.Result.Generic.Result%7B%60%601%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L170">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_BindV_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.BindV*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_BindV__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___1____" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.BindV``2(System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``1}}})">BindV&lt;TSuccessA, TSuccessB&gt;(ValueTask&lt;Result&lt;TSuccessA&gt;&gt;, Func&lt;TSuccessA, ValueTask&lt;Result&lt;TSuccessB&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB&gt;&gt; BindV&lt;TSuccessA, TSuccessB&gt;(this ValueTask&lt;Result&lt;TSuccessA&gt;&gt; taskResult, Func&lt;TSuccessA, ValueTask&lt;Result&lt;TSuccessB&gt;&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessA&gt;&gt;</td>
+        <td><span class="parametername">taskResult</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccessB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Filter__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___1___System_Predicate___0____1_.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Filter%60%602(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%601%7D%7D%2CSystem.Predicate%7B%60%600%7D%2C%60%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L68">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Filter_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Filter*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Filter__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___1___System_Predicate___0____1_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Filter``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``1}},System.Predicate{``0},``1)">Filter&lt;TSuccessA, TError&gt;(Task&lt;Result&lt;TSuccessA, TError&gt;&gt;, Predicate&lt;TSuccessA&gt;, TError)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessA, TError&gt;&gt; Filter&lt;TSuccessA, TError&gt;(this Task&lt;Result&lt;TSuccessA, TError&gt;&gt; task, Predicate&lt;TSuccessA&gt; filter, TError defaultError)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, TError&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Predicate</span>&lt;TSuccessA&gt;</td>
+        <td><span class="parametername">filter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TError</span></td>
+        <td><span class="parametername">defaultError</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, TError&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TError</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_FilterError__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___1___System_Predicate___1____0_.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.FilterError%60%602(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%601%7D%7D%2CSystem.Predicate%7B%60%601%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L75">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_FilterError_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.FilterError*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_FilterError__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___1___System_Predicate___1____0_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.FilterError``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``1}},System.Predicate{``1},``0)">FilterError&lt;TSuccessA, TError&gt;(Task&lt;Result&lt;TSuccessA, TError&gt;&gt;, Predicate&lt;TError&gt;, TSuccessA)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessA, TError&gt;&gt; FilterError&lt;TSuccessA, TError&gt;(this Task&lt;Result&lt;TSuccessA, TError&gt;&gt; task, Predicate&lt;TError&gt; filter, TSuccessA defaultError)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, TError&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Predicate</span>&lt;TError&gt;</td>
+        <td><span class="parametername">filter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TSuccessA</span></td>
+        <td><span class="parametername">defaultError</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, TError&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TError</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Map__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0___1__.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Map%60%603(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%602%7D%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L49">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Map_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Map*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Map__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___2___System_Func___0___1__" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Map``3(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``2}},System.Func{``0,``1})">Map&lt;TSuccessA, TSuccessB, __&gt;(Task&lt;Result&lt;TSuccessA, __&gt;&gt;, Func&lt;TSuccessA, TSuccessB&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TSuccessB, __&gt;&gt; Map&lt;TSuccessA, TSuccessB, __&gt;(this Task&lt;Result&lt;TSuccessA, __&gt;&gt; task, Func&lt;TSuccessA, TSuccessB&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessA, __&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TSuccessA, TSuccessB&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccessB, __&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccessA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TSuccessB</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">__</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_MapError__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___1___System_Func___1___2__.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.MapError%60%603(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7B%60%600%2C%60%601%7D%7D%2CSystem.Func%7B%60%601%2C%60%602%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L82">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_MapError_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.MapError*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_MapError__3_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___1___System_Func___1___2__" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.MapError``3(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0,``1}},System.Func{``1,``2})">MapError&lt;_, TErrorA, TErrorB&gt;(Task&lt;Result&lt;_, TErrorA&gt;&gt;, Func&lt;TErrorA, TErrorB&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;_, TErrorB&gt;&gt; MapError&lt;_, TErrorA, TErrorB&gt;(this Task&lt;Result&lt;_, TErrorA&gt;&gt; task, Func&lt;TErrorA, TErrorB&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;_, TErrorA&gt;&gt;</td>
+        <td><span class="parametername">task</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TErrorA, TErrorB&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;_, TErrorB&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">_</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErrorB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_MapFlat__11_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result_System_ValueTuple___0___1___2___3___4___5___6_System_ValueTuple___7___8___9_____System_Func___0___1___2___3___4___5___6___7___8___9_p1eXu5_Result_Generic_Result___10___.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.MapFlat%60%6011(System.Threading.Tasks.Task%7Bp1eXu5.Result.Generic.Result%7BSystem.ValueTuple%7B%60%600%2C%60%601%2C%60%602%2C%60%603%2C%60%604%2C%60%605%2C%60%606%2CSystem.ValueTuple%7B%60%607%2C%60%608%2C%60%609%7D%7D%7D%7D%2CSystem.Func%7B%60%600%2C%60%601%2C%60%602%2C%60%603%2C%60%604%2C%60%605%2C%60%606%2C%60%607%2C%60%608%2C%60%609%2Cp1eXu5.Result.Generic.Result%7B%60%6010%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L60">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_MapFlat_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.MapFlat*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_MapFlat__11_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result_System_ValueTuple___0___1___2___3___4___5___6_System_ValueTuple___7___8___9_____System_Func___0___1___2___3___4___5___6___7___8___9_p1eXu5_Result_Generic_Result___10___" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.MapFlat``11(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{System.ValueTuple{``0,``1,``2,``3,``4,``5,``6,System.ValueTuple{``7,``8,``9}}}},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,p1eXu5.Result.Generic.Result{``10}})">MapFlat&lt;TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11&gt;(Task&lt;Result&lt;(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)&gt;&gt;, Func&lt;TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, Result&lt;TS11&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;Result&lt;TS11&gt;&gt; MapFlat&lt;TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11&gt;(this Task&lt;Result&lt;(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)&gt;&gt; result, Func&lt;TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, Result&lt;TS11&gt;&gt; f)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;<span class="xref">System.ValueTuple</span>&lt;TS1, TS2, TS3, TS4, TS5, TS6, TS7, <span class="xref">System.ValueTuple</span>&lt;TS8, TS9, TS10&gt;&gt;&gt;&gt;</td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, <a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TS11&gt;&gt;</td>
+        <td><span class="parametername">f</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TS11&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TS1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS4</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS5</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS6</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS7</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS8</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS9</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS10</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TS11</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Retn__1___0_.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Retn%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L104">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Retn_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Retn*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Retn__1___0_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Retn``1(``0)">Retn&lt;_&gt;(_)</h4>
+  <div class="markdown level1 summary"><p>Retn for TaskResult.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;Result&lt;_, ()&gt;&gt; Retn&lt;_&gt;(this _ succeededContext)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">_</span></td>
+        <td><span class="parametername">succeededContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;_, <span class="xref">System.ValueTuple</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">_</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Retn__1_p1eXu5_Result_Generic_Result___0__.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Retn%60%601(p1eXu5.Result.Generic.Result%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L120">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Retn_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Retn*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Retn__1_p1eXu5_Result_Generic_Result___0__" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Retn``1(p1eXu5.Result.Generic.Result{``0})">Retn&lt;TSuccess&gt;(Result&lt;TSuccess&gt;)</h4>
+  <div class="markdown level1 summary"><p>Retn for TaskResult.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;Result&lt;TSuccess&gt;&gt; Retn&lt;TSuccess&gt;(this Result&lt;TSuccess&gt; result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccess&gt;</td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-1.html">Result</a>&lt;TSuccess&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccess</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions_Retn__2_p1eXu5_Result_Generic_Result___0___1__.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions.Retn%60%602(p1eXu5.Result.Generic.Result%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L112">View Source</a>
+  </span>
+  <a id="p1eXu5_Result_Extensions_TaskResultExtensions_Retn_" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Retn*"></a>
+  <h4 id="p1eXu5_Result_Extensions_TaskResultExtensions_Retn__2_p1eXu5_Result_Generic_Result___0___1__" data-uid="p1eXu5.Result.Extensions.TaskResultExtensions.Retn``2(p1eXu5.Result.Generic.Result{``0,``1})">Retn&lt;TSuccess, TError&gt;(Result&lt;TSuccess, TError&gt;)</h4>
+  <div class="markdown level1 summary"><p>Retn for TaskResult.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;Result&lt;TSuccess, TError&gt;&gt; Retn&lt;TSuccess, TError&gt;(this Result&lt;TSuccess, TError&gt; result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccess, TError&gt;</td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result</a>&lt;TSuccess, TError&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSuccess</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TError</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/p1eXu5/Result/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_Extensions_TaskResultExtensions.md&amp;value=---%0Auid%3A%20p1eXu5.Result.Extensions.TaskResultExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/Extensions/TaskResultExtensions.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
