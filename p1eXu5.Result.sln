@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30523.141
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{118B6623-0D24-4CCE-ACF2-E35425115C57}"
 EndProject
@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{43B8936D-1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p1eXu5.Result.Tests", "test\p1eXu5.Result.Tests\p1eXu5.Result.Tests.csproj", "{B3371DAB-52B9-436E-9E3D-CE30DD2E5082}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{508AA393-D6F6-4444-BE4D-7C9F12FED542}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{508AA393-D6F6-4444-BE4D-7C9F12FED542}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{0F1F5DC3-790F-4728-9C89-88C46B45273B}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\publisher.yml = .github\workflows\publisher.yml
 	EndProjectSection
@@ -37,6 +39,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8C112AD6-00CA-413E-B9F6-2D5CC2E2ACD9} = {118B6623-0D24-4CCE-ACF2-E35425115C57}
 		{B3371DAB-52B9-436E-9E3D-CE30DD2E5082} = {43B8936D-1113-4100-8DAF-9CBBD546FAD1}
+		{0F1F5DC3-790F-4728-9C89-88C46B45273B} = {508AA393-D6F6-4444-BE4D-7C9F12FED542}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB499A39-B754-4479-84CD-29982505F5FA}
