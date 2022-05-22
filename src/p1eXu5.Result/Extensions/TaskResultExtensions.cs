@@ -25,8 +25,11 @@ namespace p1eXu5.Result.Extensions
             this Task< Result< TSuccessA, __ > > task, 
             Task< Result< Func<TSuccessA, TSuccessB>, __ > > f )
         {
-            var fResult = await f;
-            var aResult = await task;
+            Result<Func<TSuccessA, TSuccessB>, __> fResult;
+            Result<TSuccessA, __> aResult;
+
+            fResult = await f;
+            aResult = await task;
 
             var isFResultSuccess = fResult.TryGetSucceededContext( out var fc );
             var isAResultSuccess = aResult.TryGetSucceededContext( out var ac );
@@ -146,7 +149,7 @@ namespace p1eXu5.Result.Extensions
         }
 
 
-        public static async Task< Result<TSuccessB> > Bind<TSuccessA, TSuccessB>( this Task< Result<TSuccessA>> taskResult, Func<TSuccessA, Result<TSuccessB>> f)
+        public static async Task< Result<TSuccessB> > MapToResult<TSuccessA, TSuccessB>( this Task< Result<TSuccessA>> taskResult, Func<TSuccessA, Result<TSuccessB>> f)
         {
             var result = await taskResult;
 
@@ -157,7 +160,18 @@ namespace p1eXu5.Result.Extensions
             return Result<TSuccessB>.Failure( result.FailedContext );
         }
 
-        public static async Task< Result<TSuccessB> > BindV<TSuccessA, TSuccessB>( this ValueTask< Result<TSuccessA>> taskResult, Func<TSuccessA, Result<TSuccessB>> f)
+        public static async Task<Result> Bind<TSuccessA>(this Task<Result<TSuccessA>> taskResult, Func<TSuccessA, Task<Result>> f)
+        {
+            var result = await taskResult;
+
+            if (result.TryGetSucceededContext(out var sc)) {
+                return await f(sc);
+            }
+
+            return Result.Failure(result.FailedContext);
+        }
+
+        public static async Task< Result<TSuccessB> > MapToResult<TSuccessA, TSuccessB>( this ValueTask< Result<TSuccessA>> taskResult, Func<TSuccessA, Result<TSuccessB>> f)
         {
             var result = await taskResult;
 
