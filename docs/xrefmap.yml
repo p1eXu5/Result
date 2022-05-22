@@ -611,15 +611,15 @@ references:
   fullName.vb: p1eXu5.Result.Extensions.TaskResultExtensions.Bind(Of TSuccessA)(System.Threading.Tasks.Task(Of p1eXu5.Result.Generic.Result(Of TSuccessA, System.String)), System.Func(Of TSuccessA, System.Threading.Tasks.Task(Of p1eXu5.Result.Result)))
   nameWithType: TaskResultExtensions.Bind<TSuccessA>(Task<Result<TSuccessA, String>>, Func<TSuccessA, Task<Result>>)
   nameWithType.vb: TaskResultExtensions.Bind(Of TSuccessA)(Task(Of Result(Of TSuccessA, String)), Func(Of TSuccessA, Task(Of Result)))
-- uid: p1eXu5.Result.Extensions.TaskResultExtensions.Bind``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})
-  name: Bind<TSuccessA, TSuccessB>(Task<Result<TSuccessA>>, Func<TSuccessA, Result<TSuccessB>>)
-  href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_Bind__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_p1eXu5_Result_Generic_Result___1___
-  commentId: M:p1eXu5.Result.Extensions.TaskResultExtensions.Bind``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})
-  name.vb: Bind(Of TSuccessA, TSuccessB)(Task(Of Result(Of TSuccessA)), Func(Of TSuccessA, Result(Of TSuccessB)))
-  fullName: p1eXu5.Result.Extensions.TaskResultExtensions.Bind<TSuccessA, TSuccessB>(System.Threading.Tasks.Task<p1eXu5.Result.Generic.Result<TSuccessA>>, System.Func<TSuccessA, p1eXu5.Result.Generic.Result<TSuccessB>>)
-  fullName.vb: p1eXu5.Result.Extensions.TaskResultExtensions.Bind(Of TSuccessA, TSuccessB)(System.Threading.Tasks.Task(Of p1eXu5.Result.Generic.Result(Of TSuccessA)), System.Func(Of TSuccessA, p1eXu5.Result.Generic.Result(Of TSuccessB)))
-  nameWithType: TaskResultExtensions.Bind<TSuccessA, TSuccessB>(Task<Result<TSuccessA>>, Func<TSuccessA, Result<TSuccessB>>)
-  nameWithType.vb: TaskResultExtensions.Bind(Of TSuccessA, TSuccessB)(Task(Of Result(Of TSuccessA)), Func(Of TSuccessA, Result(Of TSuccessB)))
+- uid: p1eXu5.Result.Extensions.TaskResultExtensions.Bind``1(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Result}})
+  name: Bind<TSuccessA>(Task<Result<TSuccessA>>, Func<TSuccessA, Task<Result>>)
+  href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_Bind__1_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Result___
+  commentId: M:p1eXu5.Result.Extensions.TaskResultExtensions.Bind``1(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Result}})
+  name.vb: Bind(Of TSuccessA)(Task(Of Result(Of TSuccessA)), Func(Of TSuccessA, Task(Of Result)))
+  fullName: p1eXu5.Result.Extensions.TaskResultExtensions.Bind<TSuccessA>(System.Threading.Tasks.Task<p1eXu5.Result.Generic.Result<TSuccessA>>, System.Func<TSuccessA, System.Threading.Tasks.Task<p1eXu5.Result.Result>>)
+  fullName.vb: p1eXu5.Result.Extensions.TaskResultExtensions.Bind(Of TSuccessA)(System.Threading.Tasks.Task(Of p1eXu5.Result.Generic.Result(Of TSuccessA)), System.Func(Of TSuccessA, System.Threading.Tasks.Task(Of p1eXu5.Result.Result)))
+  nameWithType: TaskResultExtensions.Bind<TSuccessA>(Task<Result<TSuccessA>>, Func<TSuccessA, Task<Result>>)
+  nameWithType.vb: TaskResultExtensions.Bind(Of TSuccessA)(Task(Of Result(Of TSuccessA)), Func(Of TSuccessA, Task(Of Result)))
 - uid: p1eXu5.Result.Extensions.TaskResultExtensions.Bind``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``1}}})
   name: Bind<TSuccessA, TSuccessB>(Task<Result<TSuccessA>>, Func<TSuccessA, Task<Result<TSuccessB>>>)
   href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_Bind__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1____
@@ -679,15 +679,6 @@ references:
   isSpec: "True"
   fullName: p1eXu5.Result.Extensions.TaskResultExtensions.BindV
   nameWithType: TaskResultExtensions.BindV
-- uid: p1eXu5.Result.Extensions.TaskResultExtensions.BindV``2(System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})
-  name: BindV<TSuccessA, TSuccessB>(ValueTask<Result<TSuccessA>>, Func<TSuccessA, Result<TSuccessB>>)
-  href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_BindV__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_p1eXu5_Result_Generic_Result___1___
-  commentId: M:p1eXu5.Result.Extensions.TaskResultExtensions.BindV``2(System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})
-  name.vb: BindV(Of TSuccessA, TSuccessB)(ValueTask(Of Result(Of TSuccessA)), Func(Of TSuccessA, Result(Of TSuccessB)))
-  fullName: p1eXu5.Result.Extensions.TaskResultExtensions.BindV<TSuccessA, TSuccessB>(System.Threading.Tasks.ValueTask<p1eXu5.Result.Generic.Result<TSuccessA>>, System.Func<TSuccessA, p1eXu5.Result.Generic.Result<TSuccessB>>)
-  fullName.vb: p1eXu5.Result.Extensions.TaskResultExtensions.BindV(Of TSuccessA, TSuccessB)(System.Threading.Tasks.ValueTask(Of p1eXu5.Result.Generic.Result(Of TSuccessA)), System.Func(Of TSuccessA, p1eXu5.Result.Generic.Result(Of TSuccessB)))
-  nameWithType: TaskResultExtensions.BindV<TSuccessA, TSuccessB>(ValueTask<Result<TSuccessA>>, Func<TSuccessA, Result<TSuccessB>>)
-  nameWithType.vb: TaskResultExtensions.BindV(Of TSuccessA, TSuccessB)(ValueTask(Of Result(Of TSuccessA)), Func(Of TSuccessA, Result(Of TSuccessB)))
 - uid: p1eXu5.Result.Extensions.TaskResultExtensions.BindV``2(System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``1}}})
   name: BindV<TSuccessA, TSuccessB>(ValueTask<Result<TSuccessA>>, Func<TSuccessA, Task<Result<TSuccessB>>>)
   href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_BindV__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___1____
@@ -786,6 +777,31 @@ references:
   fullName.vb: p1eXu5.Result.Extensions.TaskResultExtensions.MapFlat(Of TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11)(System.Threading.Tasks.Task(Of p1eXu5.Result.Generic.Result(Of System.ValueTuple(Of TS1, TS2, TS3, TS4, TS5, TS6, TS7, System.ValueTuple(Of TS8, TS9, TS10)))), System.Func(Of TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, p1eXu5.Result.Generic.Result(Of TS11)))
   nameWithType: TaskResultExtensions.MapFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11>(Task<Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)>>, Func<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, Result<TS11>>)
   nameWithType.vb: TaskResultExtensions.MapFlat(Of TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11)(Task(Of Result(Of (TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)(Of TS1, TS2, TS3, TS4, TS5, TS6, TS7, (TS8, TS9, TS10)(Of TS8, TS9, TS10)))), Func(Of TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, Result(Of TS11)))
+- uid: p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult*
+  name: MapToResult
+  href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_MapToResult_
+  commentId: Overload:p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult
+  isSpec: "True"
+  fullName: p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult
+  nameWithType: TaskResultExtensions.MapToResult
+- uid: p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})
+  name: MapToResult<TSuccessA, TSuccessB>(Task<Result<TSuccessA>>, Func<TSuccessA, Result<TSuccessB>>)
+  href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_MapToResult__2_System_Threading_Tasks_Task_p1eXu5_Result_Generic_Result___0___System_Func___0_p1eXu5_Result_Generic_Result___1___
+  commentId: M:p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult``2(System.Threading.Tasks.Task{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})
+  name.vb: MapToResult(Of TSuccessA, TSuccessB)(Task(Of Result(Of TSuccessA)), Func(Of TSuccessA, Result(Of TSuccessB)))
+  fullName: p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult<TSuccessA, TSuccessB>(System.Threading.Tasks.Task<p1eXu5.Result.Generic.Result<TSuccessA>>, System.Func<TSuccessA, p1eXu5.Result.Generic.Result<TSuccessB>>)
+  fullName.vb: p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult(Of TSuccessA, TSuccessB)(System.Threading.Tasks.Task(Of p1eXu5.Result.Generic.Result(Of TSuccessA)), System.Func(Of TSuccessA, p1eXu5.Result.Generic.Result(Of TSuccessB)))
+  nameWithType: TaskResultExtensions.MapToResult<TSuccessA, TSuccessB>(Task<Result<TSuccessA>>, Func<TSuccessA, Result<TSuccessB>>)
+  nameWithType.vb: TaskResultExtensions.MapToResult(Of TSuccessA, TSuccessB)(Task(Of Result(Of TSuccessA)), Func(Of TSuccessA, Result(Of TSuccessB)))
+- uid: p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult``2(System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})
+  name: MapToResult<TSuccessA, TSuccessB>(ValueTask<Result<TSuccessA>>, Func<TSuccessA, Result<TSuccessB>>)
+  href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_MapToResult__2_System_Threading_Tasks_ValueTask_p1eXu5_Result_Generic_Result___0___System_Func___0_p1eXu5_Result_Generic_Result___1___
+  commentId: M:p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult``2(System.Threading.Tasks.ValueTask{p1eXu5.Result.Generic.Result{``0}},System.Func{``0,p1eXu5.Result.Generic.Result{``1}})
+  name.vb: MapToResult(Of TSuccessA, TSuccessB)(ValueTask(Of Result(Of TSuccessA)), Func(Of TSuccessA, Result(Of TSuccessB)))
+  fullName: p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult<TSuccessA, TSuccessB>(System.Threading.Tasks.ValueTask<p1eXu5.Result.Generic.Result<TSuccessA>>, System.Func<TSuccessA, p1eXu5.Result.Generic.Result<TSuccessB>>)
+  fullName.vb: p1eXu5.Result.Extensions.TaskResultExtensions.MapToResult(Of TSuccessA, TSuccessB)(System.Threading.Tasks.ValueTask(Of p1eXu5.Result.Generic.Result(Of TSuccessA)), System.Func(Of TSuccessA, p1eXu5.Result.Generic.Result(Of TSuccessB)))
+  nameWithType: TaskResultExtensions.MapToResult<TSuccessA, TSuccessB>(ValueTask<Result<TSuccessA>>, Func<TSuccessA, Result<TSuccessB>>)
+  nameWithType.vb: TaskResultExtensions.MapToResult(Of TSuccessA, TSuccessB)(ValueTask(Of Result(Of TSuccessA)), Func(Of TSuccessA, Result(Of TSuccessB)))
 - uid: p1eXu5.Result.Extensions.TaskResultExtensions.Retn*
   name: Retn
   href: api/p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_Retn_
