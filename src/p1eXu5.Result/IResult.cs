@@ -1,9 +1,10 @@
-﻿namespace p1eXu5.Result
+﻿#nullable enable
+
+namespace p1eXu5.Result
 {
-    using Generic;
     using Exceptions;
 
-    public interface IResult< TSuccess, TFailure >
+    public interface IResult<TSuccess, TFailure>
     {
         /// <summary>
         /// Gets a value indicating whether the <see cref="Result{TSuccess,TFailure}"/> is succeeded.
