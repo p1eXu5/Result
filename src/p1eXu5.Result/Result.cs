@@ -521,7 +521,7 @@ public class Result : Result< Unit >
     /// <param name="result"></param>
     /// <returns></returns>
     /// <exception cref="InvalidOperationException"> If <paramref name="result"/> is succeeded. </exception>
-    public static Result Failure<_>(Result<_> result)
+    public static new Result Failure<_>(Result<_> result)
     {
         if (result.Succeeded)
         {
