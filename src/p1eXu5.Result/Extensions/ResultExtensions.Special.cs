@@ -26,7 +26,7 @@ public static partial class ResultExtensions
     }
 
 
-    public static (Result<ICollection<TSuccessB>> result, IReadOnlyCollection<string> errors) TraverseA<TSuccessA, TSuccessB>(this ICollection<TSuccessA> elems, Func<TSuccessA, Result<TSuccessB>> f)
+    public static (Result<ICollection<TSuccessB>> result, ICollection<string> errors) TraverseA<TSuccessA, TSuccessB>(this ICollection<TSuccessA> elems, Func<TSuccessA, Result<TSuccessB>> f)
     {
         ICollection<TSuccessB> list = new List<TSuccessB>(elems.Count);
         Result<ICollection<TSuccessB>> res = list.ToFailedResult("Has no successful results.");

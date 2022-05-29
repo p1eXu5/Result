@@ -365,6 +365,41 @@ public class Result<TSuccess> : IResult<TSuccess, string>
         return new Result<TSuccess>(Result<TSuccess, string>.Failure(message), ex);
     }
 
+    /// <summary>
+    /// Creates failed <see cref="Result{TSuccess}"/> from <see cref="Result"/>.
+    /// </summary>
+    /// <param name="result"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"> If <paramref name="result"/> is succeeded. </exception>
+    public static Result<TSuccess> Failure(Result result)
+    {
+        if (result.Succeeded)
+        {
+            throw new InvalidOperationException("Result is succeeded");
+        }
+
+        return new Result<TSuccess>(Result<TSuccess, string>.Failure(result.FailedContext), result.Exception);
+    }
+
+    /// <summary>
+    /// Creates failed <see cref="Result{TSuccess}"/> from another failed 
+    /// <see cref="Result{TSuccessSource}"/> with different <see cref="SuccessContext"/>.
+    /// </summary>
+    /// <typeparam name="TSuccessSource"></typeparam>
+    /// <param name="result"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public static Result<TSuccess> Failure<TSuccessSource>(Result<TSuccessSource> result)
+    {
+        if (result.Succeeded)
+        {
+            throw new InvalidOperationException("Result is succeeded");
+        }
+
+        return new Result<TSuccess>(Result<TSuccess, string>.Failure(result.FailedContext), result.Exception);
+    }
+
+
     #endregion ----------------------------------------------------- static factory methods
 
     public static string AggregateExceptionMessages(Exception exception)
@@ -478,6 +513,23 @@ public class Result : Result< Unit >
     /// </summary>
     /// <returns></returns>
     public new static Result Failure() => new( Result< Unit, string >.Failure( "" ) );
+
+    /// <summary>
+    /// Creates failed <see cref="Result"/> from <see cref="Result{TSuccess}"/>.
+    /// </summary>
+    /// <typeparam name="_"></typeparam>
+    /// <param name="result"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"> If <paramref name="result"/> is succeeded. </exception>
+    public static Result Failure<_>(Result<_> result)
+    {
+        if (result.Succeeded)
+        {
+            throw new InvalidOperationException("Result is succeeded");
+        }
+
+        return new Result(Result<Unit, string>.Failure(result.FailedContext), result.Exception);
+    }
 
 
     /// <summary>
