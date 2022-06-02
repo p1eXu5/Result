@@ -2,7 +2,8 @@
 
 | Package       | Versions                                                                                                                                |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-0.1.3-green)](https://www.nuget.org/packages/p1eXu5.Result/0.1.3)     |
+| p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-1.0.0-green)](https://www.nuget.org/packages/p1eXu5.Result/1.0.0)     |
+| p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-0.1.3-yellowgreen)](https://www.nuget.org/packages/p1eXu5.Result/0.1.3)     |
 | p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-0.1.2--alpha5-yellowgreen)](https://www.nuget.org/packages/p1eXu5.Result/0.1.2-alpha5)     |
 
 
@@ -24,60 +25,6 @@ Result<Task<int>> _ = Result.Success(Task.FromResult(12));
 
 ```
 
+<br/>
 
-## Result Extension Methods
-
-- Factory methods
-
-	| Method | Description |
-	| ------ | ----------- |
-	| | |
-
-	
-- Map methods
-
-	| Method | Description |
-	| ------ | ----------- |
-	| | |
-
-
-- Bind methods
-
-	| Method | Description |
-	| ------ | ----------- |
-	| | |
-
-
-- Filter methods
-
-	| Method | Description |
-	| ------ | ----------- |
-	| | |
-
-
-- Iter methods
-
-	| Method | Description |
-	| ------ | ----------- |
-	| | |
-
-
-- Special methods
-
-	| Method | Description |
-	| ------ | ----------- |
-	| | |
-
-
-## Tsk Extension Methods
-
-- Factory methods
-
-	| Method | Description |
-	| ------ | ----------- |
-	| [ToTaskResult]() | |
-	| [ToTaskResult]() | |
-	| [ToValueTaskResult]() | |
-	| [ToValueTaskResult]() | |
-	| [ToValueTaskResult]() | |
-	| [ToValueTaskResult]() | |
+<i>Readme is in progress, see [Api Documentation](https://p1exu5.github.io/Result/api/index.html) for details</i>
