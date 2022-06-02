@@ -1,10 +1,9 @@
-﻿using System;
+﻿#nullable enable
 
-namespace p1eXu5.Result.Exceptions
+namespace p1eXu5.Result.Exceptions;
+
+public class ResultContextAccessException : InvalidOperationException
 {
-    public class ResultContextAccessException : InvalidOperationException
-    {
-        public ResultContextAccessException( string error ) : base( error )
-        { }
-    }
+    public ResultContextAccessException( string error ) : base( error )
+    { }
 }
