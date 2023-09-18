@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace p1eXu5.Result.Extensions;
+﻿namespace p1eXu5.Result.Extensions;
 
 /// <summary>
 /// TaskResult extensions.
@@ -13,22 +11,14 @@ public static partial class TaskResultExtensions
     /// <typeparam name="_"></typeparam>
     /// <param name="succeededContext"></param>
     /// <returns></returns>
-    public static Task<Result<_, ValueTuple>> Retn<_>( this _ succeededContext )
-        => Task.FromResult( Result<_, ValueTuple>.Success( succeededContext ) );
+    public static Task<Result<TOk, TError>> Retn<TOk, TError>(this TOk succeededContext)
+        => Task.FromResult<Result<TOk, TError>>(new Result<TOk, TError>.Ok(succeededContext));
 
     /// <summary>
     /// Retn for TaskResult.
     /// </summary>
     /// <param name="result"></param>
     /// <returns></returns>
-    public static Task<Result<TSuccess, TError>> Retn<TSuccess, TError>( this Result<TSuccess, TError> result )
-        => Task.FromResult( result );
-
-    /// <summary>
-    /// Retn for TaskResult.
-    /// </summary>
-    /// <param name="result"></param>
-    /// <returns></returns>
-    public static Task<Result<TSuccess>> Retn<TSuccess>( this Result<TSuccess> result )
-        => Task.FromResult( result );
+    public static Task<Result<TOk, TError>> Retn<TOk, TError>(this Result<TOk, TError> result)
+        => Task.FromResult(result);
 }

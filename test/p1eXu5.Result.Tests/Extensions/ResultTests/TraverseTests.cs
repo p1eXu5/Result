@@ -1,6 +1,6 @@
 ﻿using p1eXu5.Result.Extensions;
 
-namespace p1eXu5.Result.Tests.UnitTests.Extensions.ResultTests;
+namespace p1eXu5.Result.Tests.Extensions.ResultTests;
 
 public class TraverseTests
 {
@@ -9,14 +9,14 @@ public class TraverseTests
     {
         // Arrange:
         var list = new int[] { 1, 2, 3, 4 };
-        Func<int, Result<int>> f = (int i) => i.ToSuccessResult<int>();
+        Func<int, Result<int, string>> f = (i) => i.ToOkWithStringError();
 
         // Action:
         var actual = list.TraverseM(f);
 
         // Assert:
-        actual.Succeeded.Should().BeTrue();
-        actual.SuccessContext.Should().BeEquivalentTo(list);
+        actual.IsOk().Should().BeTrue();
+        actual.SuccessContext().Should().BeEquivalentTo(list);
     }
 
     [Test]
@@ -26,17 +26,18 @@ public class TraverseTests
         var list = new int[] { 1, 2, 3, 4 };
         bool invokedWithLastElem = false;
 
-        Func<int, Result<int>> f = (int i) => {
+        Func<int, Result<int, string>> f = (i) =>
+        {
             if (i == 4) invokedWithLastElem = true;
-            return i == 3 ? Result<int>.Failure("error") : i.ToSuccessResult<int>();
+            return i == 3 ? new Result<int, string>.Error("error") : i.ToOkWithStringError();
         };
 
         // Action:
         var actual = list.TraverseM(f);
 
         // Assert:
-        actual.Succeeded.Should().BeFalse();
-        actual.FailedContext.Should().Be("error");
+        actual.IsOk().Should().BeFalse();
+        actual.FailedContext().Should().Be("error");
         invokedWithLastElem.Should().BeFalse();
     }
 
@@ -45,14 +46,14 @@ public class TraverseTests
     {
         // Arrange:
         var list = new int[] { 1, 2, 3, 4 };
-        Func<int, Result<string>> f = (int i) => i.ToString().ToSuccessResult();
+        Func<int, Result<string, string>> f = (i) => i.ToString().ToOkWithStringError();
 
         // Action:
         var actual = list.TraverseM(f);
 
         // Assert:
-        actual.Succeeded.Should().BeTrue();
-        actual.SuccessContext.Should().BeEquivalentTo(list.Select(i => i.ToString()));
+        actual.IsOk().Should().BeTrue();
+        actual.SuccessContext().Should().BeEquivalentTo(list.Select(i => i.ToString()));
     }
 
     [Test]
@@ -61,17 +62,18 @@ public class TraverseTests
         // Arrange:
         var list = new int[] { 1, 2, 3, 4 };
         bool invokedWithLastElem = false;
-        Func<int, Result<string>> f = (int i) => {
+        Func<int, Result<string, string>> f = (i) =>
+        {
             if (i == 4) invokedWithLastElem = true;
-            return i == 3 ? Result.Failure<string>("error") : i.ToString().ToSuccessResult();
+            return i == 3 ? "error".ToError<string>() : i.ToString().ToOkWithStringError();
         };
 
         // Action:
         var actual = list.TraverseM(f);
 
         // Assert:
-        actual.Succeeded.Should().BeFalse();
-        actual.FailedContext.Should().Be("error");
+        actual.IsOk().Should().BeFalse();
+        actual.FailedContext().Should().Be("error");
         invokedWithLastElem.Should().BeFalse();
     }
 
@@ -79,15 +81,15 @@ public class TraverseTests
     public async Task TraverseM_TraverseTask()
     {
         // Arrange:
-        Result<Task<int>> result = Result.Success(Task.FromResult(12));
+        var result = new Result<Task<int>, string>.Ok(Task.FromResult(12));
 
         // Action:
         var taskResult = result.SequenceTask();
 
         // Assert:
         var actual = await taskResult;
-        actual.Succeeded.Should().BeTrue();
-        actual.SuccessContext.Should().Be(12);
+        actual.IsOk().Should().BeTrue();
+        actual.SuccessContext().Should().Be(12);
     }
 
 
@@ -96,14 +98,14 @@ public class TraverseTests
     {
         // Arrange:
         var list = new int[] { 1, 2, 3, 4 };
-        Func<int, Result<int>> f = (int i) => i.ToSuccessResult<int>();
+        Func<int, Result<int, string>> f = (i) => i.ToOkWithStringError();
 
         // Action:
         var actual = list.TraverseA(f);
 
         // Assert:
-        actual.result.Succeeded.Should().BeTrue();
-        actual.result.SuccessContext.Should().BeEquivalentTo(list);
+        actual.result.IsOk().Should().BeTrue();
+        actual.result.SuccessContext().Should().BeEquivalentTo(list);
     }
 
     [Test]
@@ -113,16 +115,17 @@ public class TraverseTests
         var list = new int[] { 1, 2, 3, 4 };
         bool invokedWithLastElem = false;
 
-        Func<int, Result<int>> f = (int i) => {
+        Func<int, Result<int, string>> f = (i) =>
+        {
             if (i == 4) invokedWithLastElem = true;
-            return i == 3 ? Result<int>.Failure("error") : i.ToSuccessResult<int>();
+            return i == 3 ? new Result<int, string>.Error("error") : i.ToOkWithStringError();
         };
 
         // Action:
         var actual = list.TraverseA(f);
 
         // Assert:
-        actual.result.Succeeded.Should().BeTrue();
+        actual.result.IsOk().Should().BeTrue();
         actual.errors.Should().HaveCount(1).And.BeEquivalentTo(new[] { "error" });
         invokedWithLastElem.Should().BeTrue();
     }
@@ -135,16 +138,17 @@ public class TraverseTests
         var list = new int[] { 1, 2, 3, 4 };
         bool invokedWithLastElem = false;
 
-        Func<int, Result<int>> f = (int i) => {
+        Func<int, Result<int, string>> f = (i) =>
+        {
             if (i == 4) invokedWithLastElem = true;
-            return Result<int>.Failure("error");
+            return new Result<int, string>.Error("error");
         };
 
         // Action:
         var actual = list.TraverseA(f);
 
         // Assert:
-        actual.result.Succeeded.Should().BeFalse();
+        actual.result.IsOk().Should().BeFalse();
         actual.errors.Should().HaveCount(4);
         invokedWithLastElem.Should().BeTrue();
     }

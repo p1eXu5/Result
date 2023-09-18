@@ -1,38 +1,36 @@
-﻿#nullable enable
-
-namespace p1eXu5.Result.Extensions;
+﻿namespace p1eXu5.Result.Extensions;
 
 public static partial class ResultExtensions
 {
-    public static Result<TSuccess> Iter<TSuccess>(this Result<TSuccess> result, Action<TSuccess> action)
+    public static Result<TOk, TError> Iter<TOk, TError>(
+        this Result<TOk, TError> result,
+        Action<TOk> action)
     {
-        if (result.TryGetSucceededContext(out TSuccess success))
+        if (result is Result<TOk, TError>.Ok ok)
         {
-            action(success);
+            action(ok.SuccessContext);
         }
 
         return result;
     }
 
 
-    public static async ValueTask<Result<TSuccess>> IterAsync<TSuccess>(this Result<TSuccess> result, Func<TSuccess, ValueTask> actionAsync)
+    public static async ValueTask<Result<TOk, TError>> IterAsync<TOk, TError>(this Result<TOk, TError> result, Func<TOk, ValueTask> actionAsync)
     {
-        if (result.TryGetSucceededContext(out TSuccess success))
+        if (result is Result<TOk, TError>.Ok ok)
         {
-            await actionAsync(success);
+            await actionAsync(ok.SuccessContext);
         }
 
         return result;
     }
 
-    public static Result<TSuccess> IterError<TSuccess>(this Result<TSuccess> result, Func<string, TSuccess> f)
+    public static Result<TOk, TError> IterError<TOk, TError>(this Result<TOk, TError> result, Action<TError> f)
     {
-        if (result.Succeeded)
+        if (result is Result<TOk, TError>.Error err)
         {
-            return result;
+            f(err.FailedContext);
         }
-
-        f(result.FailedContext);
 
         return result;
     }

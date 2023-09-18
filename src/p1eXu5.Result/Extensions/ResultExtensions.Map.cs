@@ -1,4 +1,4 @@
-﻿#nullable enable
+﻿#pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
 
 namespace p1eXu5.Result.Extensions;
 
@@ -9,98 +9,76 @@ public static partial class ResultExtensions
     // ==================
 
     /// <summary>
-    /// <see cref="Result{TSuccess,TFailure}"/> functor.
+    /// <see cref="Result{TOk,TFailure}"/> functor.
     /// </summary>
-    /// <typeparam name="TSuccessA"></typeparam>
-    /// <typeparam name="TSuccessB"></typeparam>
-    /// <typeparam name="__"></typeparam>
-    /// <param name="result"></param>
-    /// <param name="f"></param>
-    /// <returns></returns>
-    public static Result<TSuccessB, __> Map<TSuccessA, TSuccessB, __>(this Result<TSuccessA, __> result, Func<TSuccessA, TSuccessB> f)
+    public static Result<TOkB, TError> Map<TOkA, TOkB, TError>(this Result<TOkA, TError> result, Func<TOkA, TOkB> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var sc))
-        {
-            return Result<TSuccessB, __>.Success(f(sc));
-        }
+        Result<TOkA, TError>.Ok ok => new Result<TOkB, TError>.Ok(f(ok.SuccessContext)),
+        Result<TOkA, TError>.Error err => new Result<TOkB, TError>.Error(err.FailedContext)
+    };
 
-        return Result<TSuccessB, __>.Failure(result.FailedContext);
-    }
-
-    /// <summary>
-    /// <see cref="Result{TSuccess}"/> functor.
-    /// </summary>
-    /// <typeparam name="TSuccessA"></typeparam>
-    /// <typeparam name="TSuccessB"></typeparam>
-    /// <param name="result"></param>
-    /// <param name="f"></param>
-    /// <returns></returns>
-    public static Result<TSuccessB> Map<TSuccessA, TSuccessB>(this Result<TSuccessA> result, Func<TSuccessA, TSuccessB> f)
+    public static Result<TOkResult, TError> Map<TOkA, TOkB, TOkResult, TError>(
+        this Result<(TOkA, TOkB), TError> result,
+        Func<TOkA, TOkB, TOkResult> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var sc))
-        {
-            return Result<TSuccessB>.Success(f(sc));
-        }
+        Result<(TOkA, TOkB), TError>.Ok ok => new Result<TOkResult, TError>.Ok(f(ok.SuccessContext.Item1, ok.SuccessContext.Item2)),
+        Result<(TOkA, TOkB), TError>.Error err => new Result<TOkResult, TError>.Error(err.FailedContext)
+    };
 
-        return Result<TSuccessB>.Failure(result.FailedContext);
-    }
-
-    public static Result<TS4> Map<TS1, TS2, TS3, TS4>(this Result<(TS1, TS2, TS3)> result, Func<TS1, TS2, TS3, TS4> f)
+    public static Result<TOkResult, TError> Map<TOkA, TOkB, TOkC, TOkResult, TError>(
+        this Result<(TOkA, TOkB, TOkC), TError> result,
+        Func<TOkA, TOkB, TOkC, TOkResult> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var sc))
-        {
-            return Result<TS4>.Success(f(sc.Item1, sc.Item2, sc.Item3));
-        }
+        Result<(TOkA, TOkB, TOkC), TError>.Ok ok => new Result<TOkResult, TError>.Ok(f(ok.SuccessContext.Item1, ok.SuccessContext.Item2, ok.SuccessContext.Item3)),
+        Result<(TOkA, TOkB, TOkC), TError>.Error err => new Result<TOkResult, TError>.Error(err.FailedContext)
+    };
 
-        return Result<TS4>.Failure(result.FailedContext);
-    }
-
-    public static Result<TS5> Map<TS1, TS2, TS3, TS4, TS5>(this Result<(TS1, TS2, TS3, TS4)> result, Func<TS1, TS2, TS3, TS4, TS5> f)
+    public static Result<TOkResult, TError> Map<TOkA, TOkB, TOkC, TOkD, TOkResult, TError>(
+        this Result<(TOkA, TOkB, TOkC, TOkD), TError> result,
+        Func<TOkA, TOkB, TOkC, TOkD, TOkResult> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var sc))
-        {
-            return Result<TS5>.Success(f(sc.Item1, sc.Item2, sc.Item3, sc.Item4));
-        }
-
-        return Result<TS5>.Failure(result.FailedContext);
-    }
-
-    public static Result<TS11> Map<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11>(
-        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)> result,
-        Func<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11> f )
-    {
-        if (result.TryGetSucceededContext(out var sc))
-        {
-            return Result<TS11>.Success(f(sc.Item1, sc.Item2, sc.Item3, sc.Item4, sc.Item5, sc.Item6, sc.Item7, sc.Item8, sc.Item9, sc.Item10));
-        }
-
-        return Result<TS11>.Failure(result.FailedContext);
-    }
+        Result<(TOkA, TOkB, TOkC, TOkD), TError>.Ok ok =>
+            new Result<TOkResult, TError>.Ok(
+                f(ok.SuccessContext.Item1, ok.SuccessContext.Item2, ok.SuccessContext.Item3, ok.SuccessContext.Item4)),
+        Result<(TOkA, TOkB, TOkC, TOkD), TError>.Error err => new Result<TOkResult, TError>.Error(err.FailedContext)
+    };
 
 
     // ==================
     //      MapFlat
     // ==================
 
-    public static Result<TS11> MapFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11>(
-        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)> result, 
-        Func<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, Result<TS11>> f )
+    public static Result<TOkResult, TError> FlatMap<TOkA, TOkB, TOkResult, TError>(
+        this Result<(TOkA, TOkB), TError> result,
+        Func<TOkA, TOkB, Result<TOkResult, TError>> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var sc))
-        {
-            return f(sc.Item1, sc.Item2, sc.Item3, sc.Item4, sc.Item5, sc.Item6, sc.Item7, sc.Item8, sc.Item9, sc.Item10);
-        }
+        Result<(TOkA, TOkB), TError>.Ok ok => f(ok.SuccessContext.Item1, ok.SuccessContext.Item2),
+        Result<(TOkA, TOkB), TError>.Error err => new Result<TOkResult, TError>.Error(err.FailedContext)
+    };
 
-        return Result<TS11>.Failure(result.FailedContext);
-    }
+    public static Result<TOkResult, TError> FlatMap<TOkA, TOkB, TOkC, TOkResult, TError>(
+        this Result<(TOkA, TOkB, TOkC), TError> result,
+        Func<TOkA, TOkB, TOkC, Result<TOkResult, TError>> f) => result switch
+    {
+        Result<(TOkA, TOkB, TOkC), TError>.Ok ok => f(ok.SuccessContext.Item1, ok.SuccessContext.Item2, ok.SuccessContext.Item3),
+        Result<(TOkA, TOkB, TOkC), TError>.Error err => new Result<TOkResult, TError>.Error(err.FailedContext)
+    };
 
+    public static Result<TOkResult, TError> FlatMap<TOkA, TOkB, TOkC, TOkD, TOkResult, TError>(
+        this Result<(TOkA, TOkB, TOkC, TOkD), TError> result,
+        Func<TOkA, TOkB, TOkC, TOkD, Result<TOkResult, TError>> f) => result switch
+    {
+        Result<(TOkA, TOkB, TOkC, TOkD), TError>.Ok ok =>
+            f(ok.SuccessContext.Item1, ok.SuccessContext.Item2, ok.SuccessContext.Item3, ok.SuccessContext.Item4),
+        Result<(TOkA, TOkB, TOkC, TOkD), TError>.Error err => new Result<TOkResult, TError>.Error(err.FailedContext)
+    };
 
     // ==================
     //      MapError
     // ==================
 
     /// <summary>
-    /// <see cref="Result{TSuccess,TFailure}"/> error functor.
+    /// <see cref="Result{TOk,TFailure}"/> error functor.
     /// </summary>
     /// <typeparam name="_"></typeparam>
     /// <typeparam name="TErrorA"></typeparam>
@@ -108,76 +86,46 @@ public static partial class ResultExtensions
     /// <param name="result"></param>
     /// <param name="f"></param>
     /// <returns></returns>
-    public static Result<_, TErrorB> MapError<_, TErrorA, TErrorB>(this Result<_, TErrorA> result, Func<TErrorA, TErrorB> f)
+    public static Result<TOk, TErrorB> MapError<TOk, TErrorA, TErrorB>(
+        this Result<TOk, TErrorA> result,
+        Func<TErrorA, TErrorB> f) => result switch
     {
-        if (result.TryGetFailedContext(out var fc))
-        {
-            return Result<_, TErrorB>.Failure(f(fc));
-        }
+        Result<TOk, TErrorA>.Ok ok => new Result<TOk, TErrorB>.Ok(ok.SuccessContext),
+        Result<TOk, TErrorA>.Error err => new Result<TOk, TErrorB>.Error(f(err.FailedContext))
+    };
 
-        return Result<_, TErrorB>.Success(result.SuccessContext);
-    }
-
-    public static Result<_, TErrorB> MapError<_, TErrorB>(this Result<_> result, Func<string, TErrorB> f)
+    public static Result<TOk, TError> MapErrorToSuccess<TOk, TError>(
+        this Result<TOk, TError> result,
+        Func<TError, TOk> f) => result switch
     {
-        if (result.TryGetFailedContext(out var fc))
-        {
-            return Result<_, TErrorB>.Failure(f(fc));
-        }
-
-        return Result<_, TErrorB>.Success(result.SuccessContext);
-    }
-
-    public static Result<TSuccess> MapErrorToSuccess<TSuccess>(this Result<TSuccess> result, Func<string, TSuccess> f)
-    {
-        if (result.Succeeded)
-        {
-            return result;
-        }
-
-        return Result<TSuccess>.Success(f(result.FailedContext));
-    }
-
+        Result<TOk, TError>.Ok ok => ok,
+        Result<TOk, TError>.Error err => new Result<TOk, TError>.Ok(f(err.FailedContext))
+    };
 
     // ==================
     //       Bimap
     // ==================
 
-    public static Result<TSuccessB, TErrorB> Bimap<TSuccessA, TSuccessB, TErrorA, TErrorB>( this Result<TSuccessA, TErrorA> result, 
-                                                                                            Func<TSuccessA, TSuccessB> fs, 
-                                                                                            Func<TErrorA, TErrorB> fe )
+    public static Result<TOkB, TErrorB> Bimap<TOkA, TOkB, TErrorA, TErrorB>(
+        this Result<TOkA, TErrorA> result, 
+        Func<TOkA, TOkB> fOk, 
+        Func<TErrorA, TErrorB> fErr) => result switch
     {
-
-        if (result.TryGetSucceededContext(out var s))
-        {
-            return Result<TSuccessB, TErrorB>.Success(fs(s));
-        }
-
-        return Result<TSuccessB, TErrorB>.Failure(fe(result.FailedContext));
-    }
+        Result<TOkA, TErrorA>.Ok ok => new Result<TOkB, TErrorB>.Ok(fOk(ok.SuccessContext)),
+        Result<TOkA, TErrorA>.Error err => new Result<TOkB, TErrorB>.Error(fErr(err.FailedContext))
+    };
 
     // ==================
     //      MapTask
     // ==================
 
-    public static Task<Result<TSuccessB>> MapTask<TSuccessA, TSuccessB>(this Result<TSuccessA> result, Func<TSuccessA, Task<Result<TSuccessB>>> f)
+    public static Task<Result<TOkB, TError>> MapTask<TOkA, TOkB, TError>(
+        this Result<TOkA, TError> result,
+        Func<TOkA, Task<Result<TOkB, TError>>> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var scA))
-        {
-            return f(scA);
-        }
-        return Task.FromResult(Result<TSuccessB>.Failure(result.FailedContext));
-    }
-
-
-    public static Task<Result> MapTask<TSuccessA>(this Result<TSuccessA> result, Func<TSuccessA, Task<Result>> f)
-    {
-        if (result.TryGetSucceededContext(out var scA))
-        {
-            return f(scA);
-        }
-        return Task.FromResult(Result.Failure(result.FailedContext));
-    }
+        Result<TOkA, TError>.Ok ok => f(ok.SuccessContext),
+        Result<TOkA, TError>.Error err => Task.FromResult<Result<TOkB, TError>>(new Result<TOkB, TError>.Error(err.FailedContext))
+    };
 }
 
 
