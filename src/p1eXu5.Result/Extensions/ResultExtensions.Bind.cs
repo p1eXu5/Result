@@ -1,206 +1,186 @@
-﻿#nullable enable
+﻿namespace p1eXu5.Result.Extensions;
 
-namespace p1eXu5.Result.Extensions;
+#pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
 
 public static partial class ResultExtensions
 {
-    /// <summary>
-    /// <see cref="Result{TSuccess,TFailure}"/> monad.
-    /// </summary>
-    /// <typeparam name="_"></typeparam>
-    /// <typeparam name="__"></typeparam>
-    /// <param name="result"></param>
-    /// <param name="f"></param>
-    /// <returns></returns>
-    public static Result<_, __> Bind<_, __>(this Result<_, __> result, Func<_, Result<_, __>> f)
+    public static Result<TOkB, TError> Bind<TOkA, TOkB, TError>(
+        this Result<TOkA, TError> result,
+        Func<TOkA, Result<TOkB, TError>> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var sc))
-        {
-            return f(sc);
-        }
+        Result<TOkA, TError>.Ok ok => f(ok.SuccessContext),
+        Result<TOkA, TError>.Error err => new Result<TOkB, TError>.Error(err.FailedContext)
+    };
 
-        return result;
-    }
+    #region BindFlat
 
-    public static Result<TSuccessB> Bind<TSuccessA, TSuccessB>(this Result<TSuccessA> result, Func<TSuccessA, Result<TSuccessB>> f)
+    public static Result<(TOkA, TOkB), TError> BindFlat<TOkA, TOkB, TError>(
+        this Result<TOkA, TError> result,
+        Func<Result<TOkB, TError>> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var sc))
-        {
-            return f(sc);
-        }
-
-        return Result.Failure<TSuccessB>(result.FailedContext);
-    }
-
-
-    public static Result<(TSuccessA, TSuccessB)> BindFlat<TSuccessA, TSuccessB>(this Result<TSuccessA> result, Func<Result<TSuccessB>> f)
-    {
-        if (result.TryGetSucceededContext(out var scA))
-        {
-            var resultB = f();
-            if (resultB.TryGetSucceededContext(out var scB))
+        Result<TOkA, TError>.Ok okA =>
+            f() switch
             {
-                return Result<(TSuccessA, TSuccessB)>.Success((scA, scB));
-            }
+                Result<TOkB, TError>.Ok okB => new Result<(TOkA, TOkB), TError>.Ok((okA.SuccessContext, okB.SuccessContext)),
+                Result<TOkB, TError>.Error err => new Result<(TOkA, TOkB), TError>.Error(err.FailedContext)
+            },
+        Result<TOkA, TError>.Error err => new Result<(TOkA, TOkB), TError>.Error(err.FailedContext)
+    };
 
-            return Result<(TSuccessA, TSuccessB)>.Failure(resultB.FailedContext);
-        }
-
-        return Result<(TSuccessA, TSuccessB)>.Failure(result.FailedContext);
-    }
-
-    public static Result<(TSuccessA, TSuccessB, TSuccessC)> BindFlat<TSuccessA, TSuccessB, TSuccessC>(this Result<(TSuccessA, TSuccessB)> result, Func<Result<TSuccessC>> f)
+    public static Result<(TOkA, TOkB, TOkC), TError> BindFlat<TOkA, TOkB, TOkC, TError>(
+        this Result<(TOkA, TOkB), TError> result,
+        Func<Result<TOkC, TError>> f) => result switch
     {
-        if (result.TryGetSucceededContext(out var scA))
-        {
-            var resultB = f();
-            if (resultB.TryGetSucceededContext(out var sc))
+        Result<(TOkA, TOkB), TError>.Ok ok =>
+            f() switch
             {
-                return Result<(TSuccessA, TSuccessB, TSuccessC)>.Success((scA.Item1, scA.Item2, sc));
-            }
+                Result<TOkC, TError>.Ok okC => new Result<(TOkA, TOkB, TOkC), TError>.Ok((ok.SuccessContext.Item1, ok.SuccessContext.Item2, okC.SuccessContext)),
+                Result<TOkC, TError>.Error err => new Result<(TOkA, TOkB, TOkC), TError>.Error(err.FailedContext)
+            },
+        Result<(TOkA, TOkB), TError>.Error err => new Result<(TOkA, TOkB, TOkC), TError>.Error(err.FailedContext)
+    };
 
-            return Result<(TSuccessA, TSuccessB, TSuccessC)>.Failure(resultB.FailedContext);
-        }
+    public static Result<(TOkA, TOkB, TOkC, TOkD), TError> BindFlat<TOkA, TOkB, TOkC, TOkD, TError>(
+        this Result<(TOkA, TOkB, TOkC), TError> result,
+        Func<Result<TOkD, TError>> f) => result switch
+    {
+        Result<(TOkA, TOkB, TOkC), TError>.Ok ok =>
+            f() switch
+            {
+                Result<TOkD, TError>.Ok okD =>
+                    new Result<(TOkA, TOkB, TOkC, TOkD), TError>.Ok(
+                        (ok.SuccessContext.Item1, ok.SuccessContext.Item2, ok.SuccessContext.Item3, okD.SuccessContext)),
+                Result<TOkD, TError>.Error err => new Result<(TOkA, TOkB, TOkC, TOkD), TError>.Error(err.FailedContext)
+            },
+        Result<(TOkA, TOkB, TOkC), TError>.Error err => new Result<(TOkA, TOkB, TOkC, TOkD), TError>.Error(err.FailedContext)
+    };
 
-        return Result<(TSuccessA, TSuccessB, TSuccessC)>.Failure(result.FailedContext);
-    }
+    #endregion
 
-    public static Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD)> BindFlat<TSuccessA, TSuccessB, TSuccessC, TSuccessD>(
-        this Result<(TSuccessA, TSuccessB, TSuccessC)> result, Func<Result<TSuccessD>> f)
+    /*
+    public static Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE), TError> BindFlat<TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE, TError>(
+        this Result<(TOkA, TOkB, TSuccessC, TSuccessD), TError> result, Func<Result<TSuccessE, TError>> f)
     {
         if (result.TryGetSucceededContext(out var scA))
         {
             var resultB = f();
             if (resultB.TryGetSucceededContext(out var sc))
             {
-                return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD)>.Success((scA.Item1, scA.Item2, scA.Item3, sc));
+                return Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE), TError>.Ok((scA.Item1, scA.Item2, scA.Item3, scA.Item4, sc));
             }
 
-            return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD)>.Failure(resultB.FailedContext);
+            return Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE), TError>.Error(resultB.FailedContext);
         }
 
-        return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD)>.Failure(result.FailedContext);
+        return Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE), TError>.Error(result.FailedContext);
     }
 
-    public static Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE)> BindFlat<TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE>(
-        this Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD)> result, Func<Result<TSuccessE>> f)
+    public static Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE, TSuccessF), TError> BindFlat<TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE, TSuccessF, TError>(
+        this Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE), TError> result, Func<Result<TSuccessF, TError>> f)
     {
         if (result.TryGetSucceededContext(out var scA))
         {
             var resultB = f();
             if (resultB.TryGetSucceededContext(out var sc))
             {
-                return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE)>.Success((scA.Item1, scA.Item2, scA.Item3, scA.Item4, sc));
+                return Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE, TSuccessF), TError>
+                    .Ok((scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, sc));
             }
 
-            return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE)>.Failure(resultB.FailedContext);
+            return Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE, TSuccessF), TError>.Error(resultB.FailedContext);
         }
 
-        return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE)>.Failure(result.FailedContext);
+        return Result<(TOkA, TOkB, TSuccessC, TSuccessD, TSuccessE, TSuccessF), TError>.Error(result.FailedContext);
     }
 
-    public static Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE, TSuccessF)> BindFlat<TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE, TSuccessF>(
-        this Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE)> result, Func<Result<TSuccessF>> f)
+    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7), TError> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TError>(
+        this Result<(TS1, TS2, TS3, TS4, TS5, TS6), TError> result, Func<Result<TS7, TError>> f)
     {
         if (result.TryGetSucceededContext(out var scA))
         {
             var resultB = f();
             if (resultB.TryGetSucceededContext(out var sc))
             {
-                return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE, TSuccessF)>.Success((scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, sc));
+                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7), TError>
+                    .Ok((scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, scA.Item6, sc));
             }
 
-            return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE, TSuccessF)>.Failure(resultB.FailedContext);
+            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7), TError>.Error(resultB.FailedContext);
         }
 
-        return Result<(TSuccessA, TSuccessB, TSuccessC, TSuccessD, TSuccessE, TSuccessF)>.Failure(result.FailedContext);
+        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7), TError>.Error(result.FailedContext);
     }
 
-    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7)> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7>(
-        this Result<(TS1, TS2, TS3, TS4, TS5, TS6)> result, Func<Result<TS7>> f)
+    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8), TError> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TError>(
+        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7), TError> result, Func<Result<TS8, TError>> f)
     {
         if (result.TryGetSucceededContext(out var scA))
         {
             var resultB = f();
             if (resultB.TryGetSucceededContext(out var sc))
             {
-                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7)>.Success((scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, scA.Item6, sc));
+                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8), TError>.Ok((scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, scA.Item6, scA.Item7, sc));
             }
 
-            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7)>.Failure(resultB.FailedContext);
+            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8), TError>.Error(resultB.FailedContext);
         }
 
-        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7)>.Failure(result.FailedContext);
+        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8), TError>.Error(result.FailedContext);
     }
 
-    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8)> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8>(
-        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7)> result, Func<Result<TS8>> f)
+    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9), TError> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TError>(
+        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8), TError> result, Func<Result<TS9, TError>> f)
     {
         if (result.TryGetSucceededContext(out var scA))
         {
             var resultB = f();
             if (resultB.TryGetSucceededContext(out var sc))
             {
-                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8)>.Success((scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, scA.Item6, scA.Item7, sc));
-            }
-
-            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8)>.Failure(resultB.FailedContext);
-        }
-
-        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8)>.Failure(result.FailedContext);
-    }
-
-    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9)> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9>(
-        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8)> result, Func<Result<TS9>> f)
-    {
-        if (result.TryGetSucceededContext(out var scA))
-        {
-            var resultB = f();
-            if (resultB.TryGetSucceededContext(out var sc))
-            {
-                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9)>.Success(
+                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9), TError>.Ok(
                     (scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, scA.Item6, scA.Item7, scA.Item8, sc));
             }
 
-            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9)>.Failure(resultB.FailedContext);
+            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9), TError>.Error(resultB.FailedContext);
         }
 
-        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9)>.Failure(result.FailedContext);
+        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9), TError>.Error(result.FailedContext);
     }
 
-    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10>(
-        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9)> result, Func<Result<TS10>> f)
+    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10), TError> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TError>(
+        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9), TError> result, Func<Result<TS10, TError>> f)
     {
         if (result.TryGetSucceededContext(out var scA))
         {
             var resultB = f();
             if (resultB.TryGetSucceededContext(out var sc))
             {
-                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)>.Success(
+                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10), TError>.Ok(
                     (scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, scA.Item6, scA.Item7, scA.Item8, scA.Item9, sc));
             }
 
-            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)>.Failure(resultB.FailedContext);
+            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10), TError>.Error(resultB.FailedContext);
         }
 
-        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)>.Failure(result.FailedContext);
+        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10), TError>.Error(result.FailedContext);
     }
 
-    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11)> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11>(
-        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)> result, Func<Result<TS11>> f)
+    public static Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11), TError> BindFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11, TError>(
+        this Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10), TError> result, Func<Result<TS11, TError>> f)
     {
         if (result.TryGetSucceededContext(out var scA))
         {
             var resultB = f();
             if (resultB.TryGetSucceededContext(out var sc))
             {
-                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11)>.Success(
+                return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11), TError>.Ok(
                     (scA.Item1, scA.Item2, scA.Item3, scA.Item4, scA.Item5, scA.Item6, scA.Item7, scA.Item8, scA.Item9, scA.Item10, sc));
             }
 
-            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11)>.Failure(resultB.FailedContext);
+            return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11), TError>.Error(resultB.FailedContext);
         }
 
-        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11)>.Failure(result.FailedContext);
+        return Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11), TError>.Error(result.FailedContext);
     }
+
+    */
 }

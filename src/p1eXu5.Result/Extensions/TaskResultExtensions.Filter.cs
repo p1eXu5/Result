@@ -2,15 +2,15 @@
 
 public static partial class TaskResultExtensions
 {
-    public static async Task<Result<TSuccessA, TError>> Filter<TSuccessA, TError>(
-            this Task<Result<TSuccessA, TError>> task, Predicate<TSuccessA> filter, TError defaultError)
+    public static async Task<Result<TOkA, TError>> Filter<TOkA, TError>(
+            this Task<Result<TOkA, TError>> task, Predicate<TOkA> filter, TError defaultError)
     {
         var result = await task;
         return result.Filter(filter, defaultError);
     }
 
-    public static async Task<Result<TSuccessA, TError>> FilterError<TSuccessA, TError>(
-        this Task<Result<TSuccessA, TError>> task, Predicate<TError> filter, TSuccessA defaultError)
+    public static async Task<Result<TOkA, TError>> FilterError<TOkA, TError>(
+        this Task<Result<TOkA, TError>> task, Predicate<TError> filter, TOkA defaultError)
     {
         var result = await task;
         return result.FilterError(filter, defaultError);

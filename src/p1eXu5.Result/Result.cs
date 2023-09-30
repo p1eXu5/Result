@@ -1,22 +1,37 @@
-﻿#nullable enable
+﻿namespace p1eXu5.Result;
 
-namespace p1eXu5.Result;
-
+using System.Text.Json.Serialization;
 using p1eXu5.Result.Exceptions;
-using System.Text;
 using Unit = ValueTuple;
 
 
+public abstract record Result<TOk, TError>
+{
+    public sealed record Ok(TOk SuccessContext) : Result<TOk, TError>;
+
+    public record Error(TError FailedContext) : Result<TOk, TError>;
+}
+
+public static class Result
+{
+    public static Result<Unit, TError> UnitOkWith<TError>()
+        => new Result<Unit, TError>.Ok(new Unit());
+
+    public static Result<TOk, Unit> UnitErrorWith<TOk>()
+        => new Result<TOk, Unit>.Error(new Unit());
+}
+
+/*
 /// <summary>
 /// Result class with generic succeeded and failed contexts.
 /// </summary>
-/// <typeparam name="TSuccess"></typeparam>
+/// <typeparam name="TOk"></typeparam>
 /// <typeparam name="TFailure"></typeparam>
-public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
+public class Result_<TOk, TFailure> : IResult<TOk, TFailure>
 {
     #region fields
 
-    private readonly TSuccess _successContext = default!;
+    private readonly TOk _successContext = default!;
     private readonly TFailure _failureContext = default!;
 
     #endregion ----------------------------------------------------- fields
@@ -25,18 +40,18 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
     #region ctor
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Result{TSuccess,TFailure}"/> class
+    /// Initializes a new instance of the <see cref="Result{TOk,TFailure}"/> class
     /// with succeeded context.
     /// </summary>
     /// <param name="successContext"></param>
-    protected Result(TSuccess successContext)
+    protected Result(TOk successContext)
     {
         _successContext = successContext;
         Succeeded = true;
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Result{TSuccess,TFailure}"/> class
+    /// Initializes a new instance of the <see cref="Result{TOk,TFailure}"/> class
     /// with failed context. 
     /// </summary>
     /// <param name="failureContext"></param>
@@ -52,20 +67,20 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
     #region properties
 
     /// <summary>
-    /// Gets a value indicating whether the <see cref="Result{TSuccess,TFailure}"/> is succeeded.
+    /// Gets a value indicating whether the <see cref="Result{TOk,TFailure}"/> is succeeded.
     /// </summary>
     public bool Succeeded { get; }
 
     /// <summary>
-    /// Gets a value indicating whether the <see cref="Result{TSuccess,TFailure}"/> is failed.
+    /// Gets a value indicating whether the <see cref="Result{TOk,TFailure}"/> is failed.
     /// </summary>
     public bool Failed => !Succeeded;
 
     /// <summary>
-    /// Gets succeeded context. If <see cref="Result{TSuccess,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
+    /// Gets succeeded context. If <see cref="Result{TOk,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
     /// </summary>
     /// <exception cref="ResultContextAccessException"></exception>
-    public TSuccess SuccessContext
+    public TOk SuccessContext
     {
         get {
             if (TryGetSucceededContext(out var success)) {
@@ -77,7 +92,7 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
     }
 
     /// <summary>
-    /// Gets failed context. If <see cref="Result{TSuccess,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
+    /// Gets failed context. If <see cref="Result{TOk,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
     /// </summary>
     /// <exception cref="ResultContextAccessException"></exception>
     public TFailure FailedContext
@@ -97,18 +112,18 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
     #region static factory methods 
 
     /// <summary>
-    /// Creates succeeded <see cref="Result{TSuccess,TFailure}"/>
+    /// Creates succeeded <see cref="Result{TOk,TFailure}"/>
     /// </summary>
     /// <param name="successContext"></param>
     /// <returns></returns>
-    public static Result<TSuccess, TFailure> Success(TSuccess successContext) => new(successContext);
+    public static Result<TOk, TFailure> Success(TOk successContext) => new(successContext);
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess,TFailure}"/>
+    /// Creates failed <see cref="Result{TOk,TFailure}"/>
     /// </summary>
     /// <param name="failureContext"></param>
     /// <returns></returns>
-    public static Result<TSuccess, TFailure> Failure(TFailure failureContext) => new(failureContext);
+    public static Result<TOk, TFailure> Failure(TFailure failureContext) => new(failureContext);
 
     #endregion ----------------------------------------------------- static factory methods
 
@@ -120,7 +135,7 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
     /// </summary>
     /// <param name="succeededContext"></param>
     /// <returns></returns>
-    public bool TryGetSucceededContext(out TSuccess succeededContext)
+    public bool TryGetSucceededContext(out TOk succeededContext)
     {
         succeededContext = default!;
         if (Succeeded) {
@@ -153,10 +168,10 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
     #region overrides
 
     /// <summary>
-    /// Implicitly converts <see cref="Result{TSuccess,TFailure}"/> to <see cref="bool"/>.
+    /// Implicitly converts <see cref="Result{TOk,TFailure}"/> to <see cref="bool"/>.
     /// </summary>
     /// <param name="result"></param>
-    public static implicit operator bool(Result<TSuccess, TFailure> result) => result?.Succeeded ?? false;
+    public static implicit operator bool(Result<TOk, TFailure> result) => result?.Succeeded ?? false;
 
     /// <inheritdoc />
     public override bool Equals(object? obj)
@@ -165,11 +180,11 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
             return false;
         }
 
-        var other = (Result<TSuccess, TFailure>)obj;
+        var other = (Result<TOk, TFailure>)obj;
 
-        if (TryGetSucceededContext(out TSuccess sa) && TryGetSucceededContext(out var sb)) {
+        if (TryGetSucceededContext(out TOk sa) && TryGetSucceededContext(out var sb)) {
             return
-                typeof(TSuccess).IsClass
+                typeof(TOk).IsClass
                     ? sa?.Equals(sb) ?? (sb == null)
                     : sa!.Equals(sb);
         }
@@ -188,12 +203,12 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
     public override int GetHashCode()
     {
         var success = 97 *
-            (typeof(TSuccess).IsClass
+            (typeof(TOk).IsClass
                 ? _successContext?.GetHashCode() ?? 1
                 : _successContext!.GetHashCode());
 
         var failure = 29 *
-            (typeof(TSuccess).IsClass
+            (typeof(TOk).IsClass
                 ? _failureContext?.GetHashCode() ?? 29
                 : _failureContext!.GetHashCode());
 
@@ -215,21 +230,21 @@ public class Result<TSuccess, TFailure> : IResult<TSuccess, TFailure>
 /// <summary>
 /// Result class with a generic succeeded context and string error context.
 /// </summary>
-/// <typeparam name="TSuccess"></typeparam>
-public class Result<TSuccess> : IResult<TSuccess, string>
+/// <typeparam name="TOk"></typeparam>
+public class Result_<TOk> : IResult<TOk, string>
 {
     #region ctor
 
     /// <summary>
-    /// Initialize a new instance of the <see cref="Result{ TSuccess }"/> class.
+    /// Initialize a new instance of the <see cref="Result{ TOk }"/> class.
     /// </summary>
     /// <param name="internalResult"></param>
-    protected Result(Result<TSuccess, string> internalResult)
+    protected Result(Result<TOk, string> internalResult)
     {
         InternalResult = internalResult;
     }
 
-    protected Result(Result<TSuccess, string> internalResult, Exception? exception)
+    protected Result(Result<TOk, string> internalResult, Exception? exception)
     {
         InternalResult = internalResult;
         Exception = exception;
@@ -255,9 +270,9 @@ public class Result<TSuccess> : IResult<TSuccess, string>
     }
 
     /// <summary>
-    /// <see cref="Result{TSuccess,TFailure}"/>.
+    /// <see cref="Result{TOk,TFailure}"/>.
     /// </summary>
-    public Result<TSuccess, string> InternalResult { get; }
+    public Result<TOk, string> InternalResult { get; }
 
     /// <summary>
     /// See also <see cref="AggregateExceptionMessages(Exception)"/>.
@@ -279,10 +294,10 @@ public class Result<TSuccess> : IResult<TSuccess, string>
 
     /// <inheritdoc />
     /// <summary>
-    /// Gets succeeded context. If <see cref="Result{TSuccess,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
+    /// Gets succeeded context. If <see cref="Result{TOk,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
     /// </summary>
     /// <exception cref="ResultContextAccessException"></exception>
-    public TSuccess SuccessContext
+    public TOk SuccessContext
     {
         get {
             if (TryGetSucceededContext(out var success)) {
@@ -297,7 +312,7 @@ public class Result<TSuccess> : IResult<TSuccess, string>
     public string FailedContext => InternalResult.FailedContext;
 
     /// <inheritdoc />
-    public bool TryGetSucceededContext(out TSuccess succeededContext)
+    public bool TryGetSucceededContext(out TOk succeededContext)
         => InternalResult.TryGetSucceededContext(out succeededContext);
 
     /// <inheritdoc />
@@ -318,85 +333,85 @@ public class Result<TSuccess> : IResult<TSuccess, string>
     #region static factory methods
 
     /// <summary>
-    /// Creates succeeded <see cref="Result{TSuccess}"/>
+    /// Creates succeeded <see cref="Result{TOk}"/>
     /// </summary>
     /// <param name="successContext"></param>
     /// <returns></returns>
-    public static Result<TSuccess> Success(TSuccess successContext) => new(Result<TSuccess, string>.Success(successContext));
+    public static Result<TOk> Success(TOk successContext) => new(Result<TOk, string>.Success(successContext));
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess}"/>
+    /// Creates failed <see cref="Result{TOk}"/>
     /// </summary>
     /// <returns></returns>
-    public static Result<TSuccess> Failure() => new(Result<TSuccess, string>.Failure(""));
+    public static Result<TOk> Failure() => new(Result<TOk, string>.Failure(""));
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess}"/>
+    /// Creates failed <see cref="Result{TOk}"/>
     /// </summary>
     /// <param name="errors"></param>
     /// <returns></returns>
-    public static Result<TSuccess> Failure(IEnumerable<string> errors)
-        => new(Result<TSuccess, string>.Failure(string.Join(Environment.NewLine, errors ?? new string[0])));
+    public static Result<TOk> Failure(IEnumerable<string> errors)
+        => new(Result<TOk, string>.Failure(string.Join(Environment.NewLine, errors ?? new string[0])));
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess}"/>
+    /// Creates failed <see cref="Result{TOk}"/>
     /// </summary>
     /// <param name="error"></param>
     /// <returns></returns>
-    public static Result<TSuccess> Failure(string error) => new(Result<TSuccess, string>.Failure(error));
+    public static Result<TOk> Failure(string error) => new(Result<TOk, string>.Failure(error));
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess}"/>
+    /// Creates failed <see cref="Result{TOk}"/>
     /// </summary>
     /// <param name="ex"></param>
     /// <returns></returns>
-    public static Result<TSuccess> Failure(Exception? ex)
+    public static Result<TOk> Failure(Exception? ex)
     {
-        return new Result<TSuccess>(Result<TSuccess, string>.Failure(ex?.Message ?? ""), ex);
+        return new Result<TOk>(Result<TOk, string>.Failure(ex?.Message ?? ""), ex);
     }
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess}"/>
+    /// Creates failed <see cref="Result{TOk}"/>
     /// </summary>
     /// <param name="ex"></param>
     /// <returns></returns>
-    public static Result<TSuccess> Failure(string message, Exception? ex)
+    public static Result<TOk> Failure(string message, Exception? ex)
     {
-        return new Result<TSuccess>(Result<TSuccess, string>.Failure(message), ex);
+        return new Result<TOk>(Result<TOk, string>.Failure(message), ex);
     }
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess}"/> from <see cref="Result"/>.
+    /// Creates failed <see cref="Result{TOk}"/> from <see cref="Result"/>.
     /// </summary>
     /// <param name="result"></param>
     /// <returns></returns>
     /// <exception cref="InvalidOperationException"> If <paramref name="result"/> is succeeded. </exception>
-    public static Result<TSuccess> Failure(Result result)
+    public static Result<TOk> Failure(Result result)
     {
         if (result.Succeeded)
         {
             throw new InvalidOperationException("Result is succeeded");
         }
 
-        return new Result<TSuccess>(Result<TSuccess, string>.Failure(result.FailedContext), result.Exception);
+        return new Result<TOk>(Result<TOk, string>.Failure(result.FailedContext), result.Exception);
     }
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess}"/> from another failed 
+    /// Creates failed <see cref="Result{TOk}"/> from another failed 
     /// <see cref="Result{TSuccessSource}"/> with different <see cref="SuccessContext"/>.
     /// </summary>
     /// <typeparam name="TSuccessSource"></typeparam>
     /// <param name="result"></param>
     /// <returns></returns>
     /// <exception cref="InvalidOperationException"></exception>
-    public static Result<TSuccess> Failure<TSuccessSource>(Result<TSuccessSource> result)
+    public static Result<TOk> Failure<TSuccessSource>(Result<TSuccessSource> result)
     {
         if (result.Succeeded)
         {
             throw new InvalidOperationException("Result is succeeded");
         }
 
-        return new Result<TSuccess>(Result<TSuccess, string>.Failure(result.FailedContext), result.Exception);
+        return new Result<TOk>(Result<TOk, string>.Failure(result.FailedContext), result.Exception);
     }
 
 
@@ -436,7 +451,7 @@ public class Result<TSuccess> : IResult<TSuccess, string>
     /// 
     /// </summary>
     /// <param name="result"></param>
-    public static implicit operator Result<TSuccess, string>(Result<TSuccess> result) => result.InternalResult;
+    public static implicit operator Result<TOk, string>(Result<TOk> result) => result.InternalResult;
 
     /// <inheritdoc />
     public override string ToString()
@@ -456,7 +471,7 @@ public class Result<TSuccess> : IResult<TSuccess, string>
     public override bool Equals(object? obj)
     {
         if (obj == null!) return false;
-        return obj is Result<TSuccess> other && InternalResult.Equals(other.InternalResult);
+        return obj is Result<TOk> other && InternalResult.Equals(other.InternalResult);
     }
 
     public override int GetHashCode()
@@ -466,19 +481,19 @@ public class Result<TSuccess> : IResult<TSuccess, string>
 
 
     /// <summary>
-    /// Implicitly converts <see cref="Result{TSuccess,TFailure}"/> to <see cref="bool"/>.
+    /// Implicitly converts <see cref="Result{TOk,TFailure}"/> to <see cref="bool"/>.
     /// </summary>
     /// <param name="result"></param>
-    public static implicit operator bool(Result<TSuccess> result) => result.Succeeded;
+    public static implicit operator bool(Result<TOk> result) => result.Succeeded;
 
     #endregion ----------------------------------------------------- overrides
 }
 
 
 /// <summary>
-/// <see cref="Result{TSuccess}"/> class with <see cref="Unit"/> succeeded context and <see cref="T:string[]"/> failed context.
+/// <see cref="Result{TOk}"/> class with <see cref="Unit"/> succeeded context and <see cref="T:string[]"/> failed context.
 /// </summary>
-public class Result : Result< Unit >
+public class Result_ : Result< Unit >
 {
     #region ctor
 
@@ -506,7 +521,7 @@ public class Result : Result< Unit >
     /// <returns></returns>
     public static Result Success() => new( Result< Unit, string >.Success( new ValueTuple() ) );
 
-    public static Result<TSuccess> Success<TSuccess>( TSuccess success ) => Result<TSuccess>.Success( success );
+    public static Result<TOk> Success<TOk>( TOk success ) => Result<TOk>.Success( success );
 
     /// <summary>
     /// Creates failed <see cref="Result"/>.
@@ -515,7 +530,7 @@ public class Result : Result< Unit >
     public new static Result Failure() => new( Result< Unit, string >.Failure( "" ) );
 
     /// <summary>
-    /// Creates failed <see cref="Result"/> from <see cref="Result{TSuccess}"/>.
+    /// Creates failed <see cref="Result"/> from <see cref="Result{TOk}"/>.
     /// </summary>
     /// <typeparam name="_"></typeparam>
     /// <param name="result"></param>
@@ -544,7 +559,7 @@ public class Result : Result< Unit >
     /// </summary>
     /// <param name="error"></param>
     /// <returns></returns>
-    public static Result<TSuccess> Failure<TSuccess>( string error ) => Result<TSuccess>.Failure( error );
+    public static Result<TOk> Failure<TOk>( string error ) => Result<TOk>.Failure( error );
 
     /// <summary>
     /// Creates failed <see cref="Result"/>.
@@ -565,7 +580,7 @@ public class Result : Result< Unit >
     }
 
     /// <summary>
-    /// Creates failed <see cref="Result{TSuccess}"/>
+    /// Creates failed <see cref="Result{TOk}"/>
     /// </summary>
     /// <param name="ex"></param>
     /// <returns></returns>
@@ -578,7 +593,7 @@ public class Result : Result< Unit >
 
 
     /// <summary>
-    /// Implicitly converts <see cref="Result{TSuccess,TFailure}"/> to <see cref="bool"/>.
+    /// Implicitly converts <see cref="Result{TOk,TFailure}"/> to <see cref="bool"/>.
     /// </summary>
     /// <param name="result"></param>
     public static implicit operator bool( Result result ) => result?.Succeeded ?? false;
@@ -611,3 +626,4 @@ public class Result : Result< Unit >
         return $"Failed. {FailedContext}";
     }
 }
+*/
