@@ -2,8 +2,6 @@
 
 namespace p1eXu5.Result.Tests.Extensions.ResultTests;
 
-using Unit = Unit;
-
 public class BindTests
 {
     [Test]
