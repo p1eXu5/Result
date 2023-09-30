@@ -2,9 +2,8 @@
 
 | Package       | Versions                                                                                                                                |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-1.0.0-green)](https://www.nuget.org/packages/p1eXu5.Result/1.0.0)     |
-| p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-0.1.3-yellowgreen)](https://www.nuget.org/packages/p1eXu5.Result/0.1.3)     |
-| p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-0.1.2--alpha5-yellowgreen)](https://www.nuget.org/packages/p1eXu5.Result/0.1.2-alpha5)     |
+| p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-2.0.0-green)](https://www.nuget.org/packages/p1eXu5.Result/2.0.0)     |
+
 
 
 [Api Documentation](https://p1exu5.github.io/Result/api/index.html)
@@ -16,15 +15,19 @@
 ```csharp
 
 using p1eXu5.Result;
+using p1eXu5.Result.Extensions;
+using Unit = System.ValueTuple;
 	
-Result<string> _ = Result.Failure<string>("error");
+// using constructors
+var successResult = new Result<string, string>.Ok("1");
+var errorResult = new Result<string, string>.Error("error");
 
-Result<int> _ = Result<int>.Failure("error");
-
-Result<Task<int>> _ = Result.Success(Task.FromResult(12));
+// using extension methods
+Result<int, Unit> intSuccessResult = 18.ToOk();
+Result<string, string> r2 = "1".ToError<string>();
 
 ```
 
 <br/>
 
-<i>Readme is in progress, see [Api Documentation](https://p1exu5.github.io/Result/api/index.html) for details</i>
+<i>See [Api Documentation](https://p1exu5.github.io/Result/api/index.html) for other extension methods</i>
