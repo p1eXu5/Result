@@ -107,7 +107,22 @@ Result&lt;string, string&gt; r2 = &quot;1&quot;.ToError&lt;string&gt;();
 
 </code></pre>
 <br>
+<h3 id="2-serialization-with-systemtextjson">2. Serialization with System.Text.Json</h3>
+<pre><code class="lang-cs">using System.Text.Json;
+using p1eXu5.Result.Serialization;
+
+Result&lt;string, string&gt; resultIn = new Result&lt;string, string&gt;.Ok(&quot;ok&quot;);
+var options = new JsonSerializerOptions
+{
+    Converters = { new ResultJsonConverterFactory() },
+};
+
+string json = JsonSerializer.Serialize(resultIn, options);
+var resultOut = JsonSerializer.Deserialize&lt;Result&lt;string, string&gt;&gt;(json, options);
+</code></pre>
+<br>
 <p><i>See <a href="https://p1exu5.github.io/Result/api/index.html">Api Documentation</a> for other extension methods</i></p>
+<p><i>See <a href="https://github.com/p1eXu5/Result/tree/master/test/p1eXu5.Result.Tests">tests</a> for additional examples</i></p>
 </article>
           </div>
           

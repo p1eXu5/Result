@@ -87,6 +87,6 @@
   "README.html": {
     "href": "README.html",
     "title": "Result | DocFX Material",
-    "keywords": "Result Package Versions p1eXu5.Result Api Documentation 1. Creating Result object. using p1eXu5.Result; using p1eXu5.Result.Extensions; using Unit = System.ValueTuple; // using constructors var successResult = new Result<string, string>.Ok(\"1\"); var errorResult = new Result<string, string>.Error(\"error\"); // using extension methods Result<int, Unit> intSuccessResult = 18.ToOk(); Result<string, string> r2 = \"1\".ToError<string>(); See Api Documentation for other extension methods"
+    "keywords": "Result Package Versions p1eXu5.Result Api Documentation 1. Creating Result object. using p1eXu5.Result; using p1eXu5.Result.Extensions; using Unit = System.ValueTuple; // using constructors var successResult = new Result<string, string>.Ok(\"1\"); var errorResult = new Result<string, string>.Error(\"error\"); // using extension methods Result<int, Unit> intSuccessResult = 18.ToOk(); Result<string, string> r2 = \"1\".ToError<string>(); 2. Serialization with System.Text.Json using System.Text.Json; using p1eXu5.Result.Serialization; Result<string, string> resultIn = new Result<string, string>.Ok(\"ok\"); var options = new JsonSerializerOptions { Converters = { new ResultJsonConverterFactory() }, }; string json = JsonSerializer.Serialize(resultIn, options); var resultOut = JsonSerializer.Deserialize<Result<string, string>>(json, options); See Api Documentation for other extension methods See tests for additional examples"
   }
 }
