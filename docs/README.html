@@ -8,7 +8,7 @@
     <title>Result | DocFX Material </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Result | DocFX Material ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -86,15 +86,28 @@
 <tbody>
 <tr>
 <td>p1eXu5.Result</td>
-<td><a href="https://www.nuget.org/packages/p1eXu5.Result/0.1.3"><img src="https://img.shields.io/badge/nuget-0.1.3-green" alt="NuGet"></a></td>
-</tr>
-<tr>
-<td>p1eXu5.Result</td>
-<td><a href="https://www.nuget.org/packages/p1eXu5.Result/0.1.2-alpha5"><img src="https://img.shields.io/badge/nuget-0.1.2--alpha5-yellowgreen" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/p1eXu5.Result/2.0.0"><img src="https://img.shields.io/badge/nuget-2.0.0-green" alt="NuGet"></a></td>
 </tr>
 </tbody>
 </table>
 <p><a href="https://p1exu5.github.io/Result/api/index.html">Api Documentation</a></p>
+<h3 id="1-creating-result-object">1. Creating Result object.</h3>
+<pre><code class="lang-csharp">
+using p1eXu5.Result;
+using p1eXu5.Result.Extensions;
+using Unit = System.ValueTuple;
+	
+// using constructors
+var successResult = new Result&lt;string, string&gt;.Ok(&quot;1&quot;);
+var errorResult = new Result&lt;string, string&gt;.Error(&quot;error&quot;);
+
+// using extension methods
+Result&lt;int, Unit&gt; intSuccessResult = 18.ToOk();
+Result&lt;string, string&gt; r2 = &quot;1&quot;.ToError&lt;string&gt;();
+
+</code></pre>
+<br>
+<p><i>See <a href="https://p1exu5.github.io/Result/api/index.html">Api Documentation</a> for other extension methods</i></p>
 </article>
           </div>
           

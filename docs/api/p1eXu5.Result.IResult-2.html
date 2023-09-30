@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IResult&lt;TSuccess, TFailure&gt;
+    <title>Interface IResult&lt;TOk, TFailure&gt;
    | DocFX Material </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IResult&lt;TSuccess, TFailure&gt;
+    <meta name="title" content="Interface IResult&lt;TOk, TFailure&gt;
    | DocFX Material ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -92,11 +92,23 @@
                       <a href="p1eXu5.Result.html" title="p1eXu5.Result" class="">p1eXu5.Result</a>
                         
                         <ul class="nav level2">
+                          <li class="">
+                            <a href="p1eXu5.Result.IResult.html" title="IResult" class="">IResult</a>
+                          </li>
                           <li class="active">
-                            <a href="p1eXu5.Result.IResult-2.html" title="IResult&lt;TSuccess, TFailure&gt;" class="active">IResult&lt;TSuccess, TFailure&gt;</a>
+                            <a href="p1eXu5.Result.IResult-2.html" title="IResult&lt;TOk, TFailure&gt;" class="active">IResult&lt;TOk, TFailure&gt;</a>
                           </li>
                           <li class="">
                             <a href="p1eXu5.Result.Result.html" title="Result" class="">Result</a>
+                          </li>
+                          <li class="">
+                            <a href="p1eXu5.Result.Result-2.html" title="Result&lt;TOk, TError&gt;" class="">Result&lt;TOk, TError&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="p1eXu5.Result.Result-2.Error.html" title="Result&lt;TOk, TError&gt;.Error" class="">Result&lt;TOk, TError&gt;.Error</a>
+                          </li>
+                          <li class="">
+                            <a href="p1eXu5.Result.Result-2.Ok.html" title="Result&lt;TOk, TError&gt;.Ok" class="">Result&lt;TOk, TError&gt;.Ok</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -125,14 +137,11 @@
                         </ul>  </li>
                     <li class="">
                       <span class="expand-stub"></span>
-                      <a href="p1eXu5.Result.Generic.html" title="p1eXu5.Result.Generic" class="">p1eXu5.Result.Generic</a>
+                      <a href="p1eXu5.Result.Serialization.html" title="p1eXu5.Result.Serialization" class="">p1eXu5.Result.Serialization</a>
                         
                         <ul class="nav level2">
                           <li class="">
-                            <a href="p1eXu5.Result.Generic.Result-2.html" title="Result&lt;TSuccess, TFailure&gt;" class="">Result&lt;TSuccess, TFailure&gt;</a>
-                          </li>
-                          <li class="">
-                            <a href="p1eXu5.Result.Generic.Result-1.html" title="Result&lt;TSuccess&gt;" class="">Result&lt;TSuccess&gt;</a>
+                            <a href="p1eXu5.Result.Serialization.ResultJsonConverterFactory.html" title="ResultJsonConverterFactory" class="">ResultJsonConverterFactory</a>
                           </li>
                         </ul>  </li>
                   </ul>        </div>
@@ -145,15 +154,24 @@
             <article class="content wrap" id="_content" data-uid="p1eXu5.Result.IResult`2">
   
   
-  <h1 id="p1eXu5_Result_IResult_2" data-uid="p1eXu5.Result.IResult`2" class="text-break">Interface IResult&lt;TSuccess, TFailure&gt;
+  <h1 id="p1eXu5_Result_IResult_2" data-uid="p1eXu5.Result.IResult`2" class="text-break">Interface IResult&lt;TOk, TFailure&gt;
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="p1eXu5.Result.IResult.html#p1eXu5_Result_IResult_Succeeded">IResult.Succeeded</a>
+    </div>
+    <div>
+      <a class="xref" href="p1eXu5.Result.IResult.html#p1eXu5_Result_IResult_Failed">IResult.Failed</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="p1eXu5.Result.html">p1eXu5.Result</a></h6>
   <h6><strong>Assembly</strong>: p1eXu5.Result.dll</h6>
   <h5 id="p1eXu5_Result_IResult_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IResult&lt;TSuccess, TFailure&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IResult&lt;TOk, TFailure&gt; : IResult</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -165,7 +183,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">TSuccess</span></td>
+        <td><span class="parametername">TOk</span></td>
         <td></td>
       </tr>
       <tr>
@@ -178,45 +196,14 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ovasquez/docfx-material/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_IResult_2_Failed.md&amp;value=---%0Auid%3A%20p1eXu5.Result.IResult%602.Failed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L16">View Source</a>
-  </span>
-  <a id="p1eXu5_Result_IResult_2_Failed_" data-uid="p1eXu5.Result.IResult`2.Failed*"></a>
-  <h4 id="p1eXu5_Result_IResult_2_Failed" data-uid="p1eXu5.Result.IResult`2.Failed">Failed</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating whether the <a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result&lt;TSuccess, TFailure&gt;</a> is failed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool Failed { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ovasquez/docfx-material/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_IResult_2_FailedContext.md&amp;value=---%0Auid%3A%20p1eXu5.Result.IResult%602.FailedContext%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L28">View Source</a>
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L32">View Source</a>
   </span>
   <a id="p1eXu5_Result_IResult_2_FailedContext_" data-uid="p1eXu5.Result.IResult`2.FailedContext*"></a>
   <h4 id="p1eXu5_Result_IResult_2_FailedContext" data-uid="p1eXu5.Result.IResult`2.FailedContext">FailedContext</h4>
-  <div class="markdown level1 summary"><p>Gets failed context. If <a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result&lt;TSuccess, TFailure&gt;</a> failed then throws <a class="xref" href="p1eXu5.Result.Exceptions.ResultContextAccessException.html">ResultContextAccessException</a>.</p>
+  <div class="markdown level1 summary"><p>Gets failed context. If <a class="xref" href="p1eXu5.Result.Result-2.html">Result&lt;TOk, TError&gt;</a> failed then throws <a class="xref" href="p1eXu5.Result.Exceptions.ResultContextAccessException.html">ResultContextAccessException</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -255,50 +242,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ovasquez/docfx-material/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_IResult_2_Succeeded.md&amp;value=---%0Auid%3A%20p1eXu5.Result.IResult%602.Succeeded%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L11">View Source</a>
-  </span>
-  <a id="p1eXu5_Result_IResult_2_Succeeded_" data-uid="p1eXu5.Result.IResult`2.Succeeded*"></a>
-  <h4 id="p1eXu5_Result_IResult_2_Succeeded" data-uid="p1eXu5.Result.IResult`2.Succeeded">Succeeded</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating whether the <a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result&lt;TSuccess, TFailure&gt;</a> is succeeded.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool Succeeded { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ovasquez/docfx-material/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_IResult_2_SuccessContext.md&amp;value=---%0Auid%3A%20p1eXu5.Result.IResult%602.SuccessContext%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L22">View Source</a>
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L26">View Source</a>
   </span>
   <a id="p1eXu5_Result_IResult_2_SuccessContext_" data-uid="p1eXu5.Result.IResult`2.SuccessContext*"></a>
   <h4 id="p1eXu5_Result_IResult_2_SuccessContext" data-uid="p1eXu5.Result.IResult`2.SuccessContext">SuccessContext</h4>
-  <div class="markdown level1 summary"><p>Gets succeeded context. If <a class="xref" href="p1eXu5.Result.Generic.Result-2.html">Result&lt;TSuccess, TFailure&gt;</a> failed then throws <a class="xref" href="p1eXu5.Result.Exceptions.ResultContextAccessException.html">ResultContextAccessException</a>.</p>
+  <div class="markdown level1 summary"><p>Gets succeeded context. If <a class="xref" href="p1eXu5.Result.Result-2.html">Result&lt;TOk, TError&gt;</a> failed then throws <a class="xref" href="p1eXu5.Result.Exceptions.ResultContextAccessException.html">ResultContextAccessException</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TSuccess SuccessContext { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">TOk SuccessContext { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -310,7 +266,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TSuccess</span></td>
+        <td><span class="xref">TOk</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -337,7 +293,7 @@
     <a href="https://github.com/ovasquez/docfx-material/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_IResult_2_TryGetFailedContext__1__.md&amp;value=---%0Auid%3A%20p1eXu5.Result.IResult%602.TryGetFailedContext(%601%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L42">View Source</a>
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L46">View Source</a>
   </span>
   <a id="p1eXu5_Result_IResult_2_TryGetFailedContext_" data-uid="p1eXu5.Result.IResult`2.TryGetFailedContext*"></a>
   <h4 id="p1eXu5_Result_IResult_2_TryGetFailedContext__1__" data-uid="p1eXu5.Result.IResult`2.TryGetFailedContext(`1@)">TryGetFailedContext(out TFailure)</h4>
@@ -385,16 +341,16 @@
     <a href="https://github.com/ovasquez/docfx-material/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_IResult_2_TryGetSucceededContext__0__.md&amp;value=---%0Auid%3A%20p1eXu5.Result.IResult%602.TryGetSucceededContext(%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L35">View Source</a>
+    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L39">View Source</a>
   </span>
   <a id="p1eXu5_Result_IResult_2_TryGetSucceededContext_" data-uid="p1eXu5.Result.IResult`2.TryGetSucceededContext*"></a>
-  <h4 id="p1eXu5_Result_IResult_2_TryGetSucceededContext__0__" data-uid="p1eXu5.Result.IResult`2.TryGetSucceededContext(`0@)">TryGetSucceededContext(out TSuccess)</h4>
+  <h4 id="p1eXu5_Result_IResult_2_TryGetSucceededContext__0__" data-uid="p1eXu5.Result.IResult`2.TryGetSucceededContext(`0@)">TryGetSucceededContext(out TOk)</h4>
   <div class="markdown level1 summary"><p>Gets the succeeded result context.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool TryGetSucceededContext(out TSuccess succeededContext)</code></pre>
+    <pre><code class="lang-csharp hljs">bool TryGetSucceededContext(out TOk succeededContext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -407,7 +363,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TSuccess</span></td>
+        <td><span class="xref">TOk</span></td>
         <td><span class="parametername">succeededContext</span></td>
         <td></td>
       </tr>
@@ -430,10 +386,19 @@
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="p1eXu5.Result.Extensions.ResultExtensions.html#p1eXu5_Result_Extensions_ResultExtensions_ToResult__1___0_">ResultExtensions.ToResult&lt;TSuccess&gt;(TSuccess)</a>
+      <a class="xref" href="p1eXu5.Result.Extensions.ResultExtensions.html#p1eXu5_Result_Extensions_ResultExtensions_ToOk__2___0_">ResultExtensions.ToOk&lt;TOk, TError&gt;(TOk)</a>
   </div>
   <div>
-      <a class="xref" href="p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_Retn__1___0_">TaskResultExtensions.Retn&lt;_&gt;(_)</a>
+      <a class="xref" href="p1eXu5.Result.Extensions.ResultExtensions.html#p1eXu5_Result_Extensions_ResultExtensions_ToOk__1___0_">ResultExtensions.ToOk&lt;TOk&gt;(TOk)</a>
+  </div>
+  <div>
+      <a class="xref" href="p1eXu5.Result.Extensions.ResultExtensions.html#p1eXu5_Result_Extensions_ResultExtensions_ToOkWithStringError__1___0_">ResultExtensions.ToOkWithStringError&lt;TOk&gt;(TOk)</a>
+  </div>
+  <div>
+      <a class="xref" href="p1eXu5.Result.Extensions.ResultExtensions.html#p1eXu5_Result_Extensions_ResultExtensions_ToError__2___1_">ResultExtensions.ToError&lt;TOk, TError&gt;(TError)</a>
+  </div>
+  <div>
+      <a class="xref" href="p1eXu5.Result.Extensions.TaskResultExtensions.html#p1eXu5_Result_Extensions_TaskResultExtensions_Retn__2___0_">TaskResultExtensions.Retn&lt;TOk, TError&gt;(TOk)</a>
   </div>
 </article>
           </div>
@@ -446,7 +411,7 @@
                     <a href="https://github.com/ovasquez/docfx-material/new/gh-pages/apiSpec/new?filename=p1eXu5_Result_IResult_2.md&amp;value=---%0Auid%3A%20p1eXu5.Result.IResult%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/p1eXu5/Result/blob/gh-pages/src/p1eXu5.Result/IResult.cs/#L20" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

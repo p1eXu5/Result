@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "D:/Projects/Programming/CSharp/_libs/p1eXu5/p1eXu5.Result",
+  "source_base_path": "D:/Programming/CSharp/_libs/p1eXu5/p1eXu5.Result",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "K7//xf70TZPsQ+w3sPX36n4dnqMhtw4lLNjPqmVpW2c="
+          "hash": "7M6wqJJOzsySPIcUOcBV0zS3rm1SevBDKCGLsBiCbhU="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "PqS/mNvIyDr5A54rWaU6VdsugD/HFO86qHVU5Bjb+Yg="
+          "hash": "AwOdoFj0TLt1PB7Y5OxPMmiA0d+OxU74TAyPj6tOXIU="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.Exceptions.ResultContextAccessException.html",
-          "hash": "eVNBHN0pxAHcFNPmU9KbPmcmAC3/qB5bwhAmukW9bI8="
+          "hash": "iTV3hE4xLgoOANcGuVPNTqEVr5/0LdSkAtg0waFhuiw="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.Exceptions.html",
-          "hash": "EnOtS0v4eYIPgGeZ/e9JCKc5uctdvzMUJ2+aZCfKWJ8="
+          "hash": "i583QgQzp7xtqBgqn7FDZ5Pwypp2X1phCbdZkhVgkQE="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.Extensions.ResultExtensions.html",
-          "hash": "H/hJHfCRZ0a7jzbSmxzeE+MI7dny3No1bdvOyM4vI54="
+          "hash": "8nZZbT2ZDX3/2BRx7R5qn8AD1sj6rBEKRoDuvr/R11o="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.Extensions.TaskExtensions.html",
-          "hash": "pPZz9gK+pbVx7M9wo5sOGqdvK4+GrbpnqF2pDYPAk98="
+          "hash": "kW2CVa3Io2NYhn00eEOsKFT4o8y0jzR5mg8RD0epWLI="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.Extensions.TaskResultExtensions.html",
-          "hash": "xkZWdGvs577BxrKMmsWcIVegx2piiw0CiB9SawAvxYU="
+          "hash": "YsY9voEsX4bLvPL2CFsrEy34XUZdE/Zjf9+ANNSize0="
         }
       },
       "is_incremental": false,
@@ -102,43 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.Extensions.html",
-          "hash": "aJr1At0JGN1b4dxHyUo7Q1fZyQH71ix0jfMVC3+20TU="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/p1eXu5.Result.Generic.Result-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/p1eXu5.Result.Generic.Result-1.html",
-          "hash": "+hwM6HcM++z6StOMO0O3DVO9U6tv9RqghZNNH4DqdKA="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/p1eXu5.Result.Generic.Result-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/p1eXu5.Result.Generic.Result-2.html",
-          "hash": "jUI+NIslaHJi9sdTZAF106kZNvLwj5wyv2lcCb1B510="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/p1eXu5.Result.Generic.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/p1eXu5.Result.Generic.html",
-          "hash": "8cpM9DnBdeYv89Sj986j/R74eVLhlrNIP27WX69LQwA="
+          "hash": "AK4ZIssmCUltulQtCuS/izv2rKJI1d8KTmmQAL6CEqA="
         }
       },
       "is_incremental": false,
@@ -150,7 +114,55 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.IResult-2.html",
-          "hash": "771BaOzb0GHeEdLCX1eUmddpTqP0o6xWQ5t2tvJpGFc="
+          "hash": "oXZkD3tuUUkpNaUOYAslU2o8Mk9OgCPD/SNFC5LdYow="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/p1eXu5.Result.IResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/p1eXu5.Result.IResult.html",
+          "hash": "l9ic7sWi2WyHQ9TM0JsmkgKpGdxXAXIsvzltpsyhU0M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/p1eXu5.Result.Result-2.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/p1eXu5.Result.Result-2.Error.html",
+          "hash": "Fsdq9lfdVb1XaHTFwK6EdHDHU8qnkXWgG6xU08dfVlM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/p1eXu5.Result.Result-2.Ok.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/p1eXu5.Result.Result-2.Ok.html",
+          "hash": "39ioCVTym2QjkHpkMzsv7tjlCZ5TiFu392I2I9jyF/k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/p1eXu5.Result.Result-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/p1eXu5.Result.Result-2.html",
+          "hash": "QvLffOTJw7AcvCvo2qdtXnBc0AmcUKMqgMsIttz5SUg="
         }
       },
       "is_incremental": false,
@@ -162,7 +174,31 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.Result.html",
-          "hash": "JJCNz1cZZofChiYRDRlbPh5PE1Mk3YA24zuMrKXVs8I="
+          "hash": "ihDFHtO/48mysLjrM7EFBY04MCM9L9e7EKDvMz/kstw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/p1eXu5.Result.Serialization.ResultJsonConverterFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/p1eXu5.Result.Serialization.ResultJsonConverterFactory.html",
+          "hash": "FMitX+oov8Jc5Nmm3+UuftSR3EPd/bEe0b1Nvh6QbJk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/p1eXu5.Result.Serialization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/p1eXu5.Result.Serialization.html",
+          "hash": "f5pqd3bkQrFGohbFujyfqq52vpfw5rjvqr2irNNswm4="
         }
       },
       "is_incremental": false,
@@ -174,7 +210,7 @@
       "output": {
         ".html": {
           "relative_path": "api/p1eXu5.Result.html",
-          "hash": "l6qJwNuXStqS7EsNuw+mZgEFPC8iIpLCVcVblJoTNoQ="
+          "hash": "nXChDIkyKFmW0Pbtw4Kn8bFk7na/p63QQEhE5gvk5ug="
         }
       },
       "is_incremental": false,
@@ -186,7 +222,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "xjSdx0SCiaeRHE90vS5pvAPUKJmc9ZmiKtp1xdb5v7U="
+          "hash": "cxjAmnG0VqUkhdm6RzMnGUhl/O/kwFIx1pSGwvGMVDM="
         }
       },
       "is_incremental": false,
@@ -196,23 +232,25 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because docfx version changed from 2.58.9.0 to 2.59.4.0.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "DocfxVersionChanged"
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 3,
-          "skipped_file_count": 3
+          "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 12,
-          "skipped_file_count": 12
+          "total_file_count": 15,
+          "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
