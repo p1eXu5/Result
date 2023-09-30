@@ -1,37 +1,24 @@
-﻿#nullable enable
+﻿namespace p1eXu5.Result.Extensions;
 
-namespace p1eXu5.Result.Extensions;
+#pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
 
 public static partial class ResultExtensions
 {
-    public static Result<TSuccessA, TError> Filter<TSuccessA, TError>(
-        this Result<TSuccessA, TError> result, Predicate<TSuccessA> filter, TError defaultError)
+    public static Result<TOkA, TError> Filter<TOkA, TError>(
+        this Result<TOkA, TError> result,
+        Predicate<TOkA> filter,
+        TError defaultError) => result switch
     {
+        Result<TOkA, TError>.Ok ok => filter(ok.SuccessContext) ? result : new Result<TOkA, TError>.Error(defaultError),
+        Result<TOkA, TError>.Error err => err
+    };
 
-        if (result.TryGetSucceededContext(out var s))
-        {
-            return
-                filter(s)
-                    ? result
-                    : Result<TSuccessA, TError>.Failure(defaultError);
-        }
-
-        return result;
-    }
-
-
-    public static Result<TSuccessA, TError> FilterError<TSuccessA, TError>(
-        this Result<TSuccessA, TError> result, Predicate<TError> filter, TSuccessA defaultError)
+    public static Result<TOkA, TError> FilterError<TOkA, TError>(
+        this Result<TOkA, TError> result,
+        Predicate<TError> filter,
+        TOkA defaultOk) => result switch
     {
-
-        if (result.TryGetFailedContext(out var f))
-        {
-            return
-                filter(f)
-                    ? result
-                    : Result<TSuccessA, TError>.Success(defaultError);
-        }
-
-        return result;
-    }
+        Result<TOkA, TError>.Error err => filter(err.FailedContext) ? result : new Result<TOkA, TError>.Ok(defaultOk),
+        Result<TOkA, TError>.Ok ok => ok
+    };
 }

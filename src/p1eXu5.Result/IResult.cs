@@ -1,45 +1,47 @@
 ﻿#nullable enable
 
-namespace p1eXu5.Result
+namespace p1eXu5.Result;
+
+using Exceptions;
+
+public interface IResult
 {
-    using Exceptions;
+    /// <summary>
+    /// Gets a value indicating whether the <see cref="IResult"/> is succeeded.
+    /// </summary>
+    bool Succeeded { get; }
 
-    public interface IResult<TSuccess, TFailure>
-    {
-        /// <summary>
-        /// Gets a value indicating whether the <see cref="Result{TSuccess,TFailure}"/> is succeeded.
-        /// </summary>
-        bool Succeeded { get; }
+    /// <summary>
+    /// Gets a value indicating whether the <see cref="IResult"/> is failed.
+    /// </summary>
+    bool Failed { get; }
+}
 
-        /// <summary>
-        /// Gets a value indicating whether the <see cref="Result{TSuccess,TFailure}"/> is failed.
-        /// </summary>
-        bool Failed { get; }
+public interface IResult<TOk, TFailure> : IResult
+{
+    /// <summary>
+    /// Gets succeeded context. If <see cref="Result{TOk,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
+    /// </summary>
+    /// <exception cref="ResultContextAccessException"></exception>
+    TOk SuccessContext { get; }
 
-        /// <summary>
-        /// Gets succeeded context. If <see cref="Result{TSuccess,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
-        /// </summary>
-        /// <exception cref="ResultContextAccessException"></exception>
-        TSuccess SuccessContext { get; }
+    /// <summary>
+    /// Gets failed context. If <see cref="Result{TOk,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
+    /// </summary>
+    /// <exception cref="ResultContextAccessException"></exception>
+    TFailure FailedContext { get; }
 
-        /// <summary>
-        /// Gets failed context. If <see cref="Result{TSuccess,TFailure}"/> failed then throws <see cref="ResultContextAccessException"/>.
-        /// </summary>
-        /// <exception cref="ResultContextAccessException"></exception>
-        TFailure FailedContext { get; }
+    /// <summary>
+    /// Gets the succeeded result context.
+    /// </summary>
+    /// <param name="succeededContext"></param>
+    /// <returns></returns>
+    bool TryGetSucceededContext( out TOk succeededContext );
 
-        /// <summary>
-        /// Gets the succeeded result context.
-        /// </summary>
-        /// <param name="succeededContext"></param>
-        /// <returns></returns>
-        bool TryGetSucceededContext( out TSuccess succeededContext );
-
-        /// <summary>
-        /// Gets the failed result context.
-        /// </summary>
-        /// <param name="failedContext"></param>
-        /// <returns></returns>
-        bool TryGetFailedContext( out TFailure failedContext );
-    }
+    /// <summary>
+    /// Gets the failed result context.
+    /// </summary>
+    /// <param name="failedContext"></param>
+    /// <returns></returns>
+    bool TryGetFailedContext( out TFailure failedContext );
 }

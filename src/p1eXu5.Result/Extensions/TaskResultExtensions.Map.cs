@@ -2,9 +2,9 @@
 
 public static partial class TaskResultExtensions
 {
-    public static async Task<Result<TSuccessB, __>> Map<TSuccessA, TSuccessB, __>(
-            this Task<Result<TSuccessA, __>> task,
-            Func<TSuccessA, TSuccessB> f)
+    public static async Task<Result<TOkB, TError>> Map<TOkA, TOkB, TError>(
+            this Task<Result<TOkA, TError>> task,
+            Func<TOkA, TOkB> f)
     {
         var aResult = await task;
 
@@ -13,50 +13,63 @@ public static partial class TaskResultExtensions
     }
 
 
-    public static async Task<Result<TS11>> MapFlat<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, TS11>(
-        this Task<Result<(TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10)>> result, Func<TS1, TS2, TS3, TS4, TS5, TS6, TS7, TS8, TS9, TS10, Result<TS11>> f)
+    public static async Task<Result<TOkResult, TError>> MapFlat<TOkA, TOkB, TOkResult, TError>(
+        this Task<Result<(TOkA, TOkB), TError>> result, Func<TOkA, TOkB, Result<TOkResult, TError>> f)
     {
-        var res = await result;
-        return res.MapFlat(f);
+        Result<(TOkA, TOkB), TError> res = await result;
+        return res.FlatMap(f);
     }
 
+    public static async Task<Result<TOkResult, TError>> MapFlat<TOkA, TOkB, TOkC, TOkResult, TError>(
+        this Task<Result<(TOkA, TOkB, TOkC), TError>> result, Func<TOkA, TOkB, TOkC, Result<TOkResult, TError>> f)
+    {
+        Result<(TOkA, TOkB, TOkC), TError> res = await result;
+        return res.FlatMap(f);
+    }
 
-    public static async Task<Result<_, TErrorB>> MapError<_, TErrorA, TErrorB>(this Task<Result<_, TErrorA>> task, Func<TErrorA, TErrorB> f)
+    public static async Task<Result<TOkResult, TError>> MapFlat<TOkA, TOkB, TOkC, TOkD, TOkResult, TError>(
+        this Task<Result<(TOkA, TOkB, TOkC, TOkD), TError>> result, Func<TOkA, TOkB, TOkC, TOkD, Result<TOkResult, TError>> f)
+    {
+        Result<(TOkA, TOkB, TOkC, TOkD), TError> res = await result;
+        return res.FlatMap(f);
+    }
+
+    public static async Task<Result<TOk, TErrorB>> MapError<TOk, TErrorA, TErrorB>(this Task<Result<TOk, TErrorA>> task, Func<TErrorA, TErrorB> f)
     {
         var result = await task;
         return result.MapError(f);
     }
 
 
-    public static async Task<Result<TSuccessB, TErrorB>> Bimap<TSuccessA, TSuccessB, TErrorA, TErrorB>(
-        this Task<Result<TSuccessA, TErrorA>> task, Func<TSuccessA, TSuccessB> fs, Func<TErrorA, TErrorB> fe)
+    public static async Task<Result<TOkB, TErrorB>> Bimap<TOkA, TOkB, TErrorA, TErrorB>(
+        this Task<Result<TOkA, TErrorA>> task, Func<TOkA, TOkB> fs, Func<TErrorA, TErrorB> fe)
     {
         var result = await task;
         return result.Bimap(fs, fe);
     }
 
-    public static async Task<Result<TSuccessB>> MapResult<TSuccessA, TSuccessB>(this Task<Result<TSuccessA>> taskResult, Func<TSuccessA, Result<TSuccessB>> f)
+    public static async Task<Result<TOkB, TError>> MapResult<TOkA, TOkB, TError>(this Task<Result<TOkA, TError>> taskResult, Func<TOkA, Result<TOkB, TError>> f)
     {
         var result = await taskResult;
 
-        if (result.TryGetSucceededContext(out var sc))
+        if (result.TryGetSuccessContext(out var sc))
         {
             return f(sc);
         }
 
-        return Result<TSuccessB>.Failure(result.FailedContext);
+        return new Result<TOkB, TError>.Error(result.FailedContext());
     }
 
-    public static async Task<Result<TSuccessB>> MapResult<TSuccessA, TSuccessB>(this ValueTask<Result<TSuccessA>> taskResult, Func<TSuccessA, Result<TSuccessB>> f)
+    public static async Task<Result<TOkB, TError>> MapResult<TOkA, TOkB, TError>(this ValueTask<Result<TOkA, TError>> taskResult, Func<TOkA, Result<TOkB, TError>> f)
     {
         var result = await taskResult;
 
-        if (result.TryGetSucceededContext(out var sc))
+        if (result.TryGetSuccessContext(out var sc))
         {
             return f(sc);
         }
 
-        return Result<TSuccessB>.Failure(result.FailedContext);
+        return new Result<TOkB, TError>.Error(result.FailedContext());
     }
 }
 
