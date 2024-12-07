@@ -2,6 +2,7 @@
 
 | Package       | Versions                                                                                                                                |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-3.0.0-green)](https://www.nuget.org/packages/p1eXu5.Result/3.0.0)     |
 | p1eXu5.Result | [![NuGet](https://img.shields.io/badge/nuget-2.0.0-green)](https://www.nuget.org/packages/p1eXu5.Result/2.0.0)     |
 
 

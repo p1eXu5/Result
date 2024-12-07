@@ -129,7 +129,7 @@ public static partial class TaskExtensions
     {
         if (task.IsFaulted)
         {
-            return new ValueTask<Result<TContext, Exception>>(new Result<TContext, Exception>.Error(task.AsTask().Exception));
+            return new ValueTask<Result<TContext, Exception>>(new Result<TContext, Exception>.Error(task.AsTask().Exception!));
         }
 
         if (task.IsCanceled)
@@ -156,7 +156,7 @@ public static partial class TaskExtensions
     {
         if (task.IsFaulted)
         {
-            return new ValueTask<Result<Unit, Exception>>(new Result<Unit, Exception>.Error(task.AsTask().Exception));
+            return new ValueTask<Result<Unit, Exception>>(new Result<Unit, Exception>.Error(task.AsTask().Exception!));
         }
 
         if (task.IsCompleted)

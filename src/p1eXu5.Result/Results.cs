@@ -9,7 +9,7 @@ public abstract record Result<TOk, TError>
 {
     public sealed record Ok(TOk SuccessContext) : Result<TOk, TError>;
 
-    public record Error(TError FailedContext) : Result<TOk, TError>;
+    public sealed record Error(TError FailedContext) : Result<TOk, TError>;
 }
 
 public static class Result

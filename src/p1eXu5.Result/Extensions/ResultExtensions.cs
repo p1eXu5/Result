@@ -1,7 +1,5 @@
 ﻿namespace p1eXu5.Result.Extensions;
 
-#pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
-
 using p1eXu5.Result.Exceptions;
 using Unit = ValueTuple;
 
@@ -35,11 +33,15 @@ public static partial class ResultExtensions
     public static bool IsError<TOk, TError>(this Result<TOk, TError> result)
         => !result.IsOk();
 
+#pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
+
     public static TOk SuccessContext<TOk, TError>(this Result<TOk, TError> result) => result switch
     {
         Result<TOk, TError>.Ok ok => ok.SuccessContext,
         Result<TOk, TError>.Error _ => throw new ResultContextAccessException("Result does not have success context cause it is failed."),
     };
+
+#pragma warning restore CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
 
     public static bool TryGetSuccessContext<TOk, TError>(this Result<TOk, TError> result, out TOk successContext)
     {
@@ -53,11 +55,15 @@ public static partial class ResultExtensions
         return false;
     }
 
+#pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
+
     public static TError FailedContext<TOk, TError>(this Result<TOk, TError> result) => result switch
     {
         Result<TOk, TError>.Ok _ => throw new ResultContextAccessException("Result does not have failed context cause it is success."),
         Result<TOk, TError>.Error err => err.FailedContext,
     };
+
+#pragma warning restore CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
 
     public static bool TryGetFailedContext<TOk, TError>(this Result<TOk, TError> result, out TError failedContext)
     {
